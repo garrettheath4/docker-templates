@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Date>2017-08-27</Date>
+  <Beta>False</Beta>
+  <Category>Cloud</Category>
+  <Name>Insync</Name>
+  <Project>https://www.insynchq.com/</Project>
+  <Changes>
+[center][img width='155px' src='http://d2631fvi2jdnb6.cloudfront.net/docker/limetech.png'][/center]
+
+[center][font size=4]Insync Change Log[/font][/center]
+
+[font size=3]1.0.0[/font]
+- Do not check certificate when downloading insync apt key
+- Exec the insync command
+- Reduces the number of run command and minor fixes
+- Changed url to get authentication code
+- Changed exec mode
+- Changed exec mode
+- Adapted add_account script for new insync version
+- Added TOTO and CHANGELOG in dockerignore
+- Added script for managing the ignore list
+- Generate locales in one step
+- Initial revision
+  </Changes>
+  <Overview>
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
+  </Overview>
+  <Description>
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
+  </Description>
+  <Registry>https://registry.hub.docker.com/u/cburki/insync/</Registry>
+  <GitHub>https://github.com/cburki/docker-insync</GitHub>
+  <Repository>cburki/insync</Repository>
+  <Support></Support>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Environment/>
+  <Banner></Banner>
+  <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
+</Containers>
