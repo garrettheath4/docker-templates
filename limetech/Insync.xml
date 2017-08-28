@@ -29,8 +29,8 @@
   <Description>
     Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
   </Description>
-  <Registry>https://registry.hub.docker.com/u/cburki/insync/</Registry>
-  <GitHub>https://github.com/cburki/docker-insync</GitHub>
+  <Registry>https://registry.hub.docker.com/u/garrettheath4/docker-insync/</Registry>
+  <GitHub>https://github.com/garrettheath4/docker-insync</GitHub>
   <Repository>cburki/insync</Repository>
   <Support></Support>
   <BindTime>true</BindTime>
@@ -39,7 +39,27 @@
     <Mode>host</Mode>
     <Publish/>
   </Networking>
-  <Environment/>
+  <Environment>
+    <Variable>
+      <Value>example@gmail.com</Value>
+      <Name>GDRIVE_ACCOUNT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>4/1a2b3c</Value>
+      <Name>GDRIVE_AUTHCODE</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">example@gmail.com</Config>
+  <Config Name="Google Authentication Code (from http://goo.gl/kTvy0y)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/1a2b3c</Config>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Insync</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
   <Banner></Banner>
   <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
 </Containers>
