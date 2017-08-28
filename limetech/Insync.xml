@@ -59,7 +59,7 @@
     </Variable>
   </Environment>
   <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">example@gmail.com</Config>
-  <Config Name="Google Authentication Code (from http://goo.gl/kTvy0y)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/1a2b3c</Config>
+  <Config Name="Google Authentication Code (from https://goo.gl/jv797S)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/1a2b3c</Config>
   <Banner></Banner>
   <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
 </Containers>
