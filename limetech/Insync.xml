@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Containers>
-  <Date>2017-08-27</Date>
+  <Date>2018-03-01</Date>
   <Beta>False</Beta>
   <Category>Cloud</Category>
   <Name>Insync</Name>
@@ -36,7 +36,7 @@
   <Repository>garrettheath4/docker-insync</Repository>
   <Support></Support>
   <BindTime>true</BindTime>
-  <Privileged>true</Privileged>
+  <Privileged>false</Privileged>
   <Networking>
     <Mode>host</Mode>
     <Publish/>
@@ -48,18 +48,7 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Environment>
-    <Variable>
-      <Value>example@gmail.com</Value>
-      <Name>GDRIVE_ACCOUNT</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>4/1a2b3c</Value>
-      <Name>GDRIVE_AUTHCODE</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
+  <Environment/>
   <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">example@gmail.com</Config>
   <Config Name="Google Authentication Code (see link in description)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/1a2b3c</Config>
   <Banner></Banner>
