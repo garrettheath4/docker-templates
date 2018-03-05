@@ -1,42 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <Date>2018-03-01</Date>
-  <Beta>False</Beta>
-  <Category>Cloud</Category>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>Insync</Name>
-  <Project>https://www.insynchq.com/</Project>
-  <Changes>
-[center][img width='155px' src='http://d2631fvi2jdnb6.cloudfront.net/docker/limetech.png'][/center]
-
-[center][font size=4]Insync Change Log[/font][/center]
-
-[font size=3]1.0.0[/font]
-- Do not check certificate when downloading insync apt key
-- Exec the insync command
-- Reduces the number of run command and minor fixes
-- Changed url to get authentication code
-- Changed exec mode
-- Changed exec mode
-- Adapted add_account script for new insync version
-- Added TOTO and CHANGELOG in dockerignore
-- Added script for managing the ignore list
-- Generate locales in one step
-- Initial revision
-  </Changes>
-  <Overview>
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
-  </Overview>
-  <Description>
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.[br][br]
-
-    [b]Note:[/b][a href="https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth%3Fscope%3Demail%2Bprofile%2Bhttps%253A%252F%252Fwww.googleapis.com%252Fauth%252Fdrive%2Bhttps%253A%252F%252Fwww.googleapis.com%252Fauth%252Factivity%26redirect_uri%3Durn%253Aietf%253Awg%253Aoauth%253A2.0%253Aoob%26hl%3Den%26client_id%3D468017360789.apps.googleusercontent.com%26response_type%3Dcode%26access_type%3Doffline"]Click here[/a] to get the [i]Google Authentication Code[/i].
-  </Description>
-  <Registry>https://registry.hub.docker.com/u/garrettheath4/docker-insync/</Registry>
-  <GitHub>https://github.com/garrettheath4/docker-insync</GitHub>
   <Repository>garrettheath4/docker-insync</Repository>
-  <Support></Support>
-  <BindTime>true</BindTime>
+  <Registry>https://registry.hub.docker.com/u/garrettheath4/docker-insync/</Registry>
+  <Network>host</Network>
   <Privileged>false</Privileged>
+  <Support/>
+  <Overview>&#xD;
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
+  </Overview>
+  <Category>Cloud:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
+  <ExtraParams/>
+  <DateInstalled>1519921607</DateInstalled>
+  <Description>&#xD;
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
+  </Description>
   <Networking>
     <Mode>host</Mode>
     <Publish/>
@@ -48,9 +29,19 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Environment/>
-  <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">example@gmail.com</Config>
-  <Config Name="Google Authentication Code (see link in description)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/1a2b3c</Config>
-  <Banner></Banner>
-  <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
-</Containers>
+  <Environment>
+    <Variable>
+      <Value>garrettheath4</Value>
+      <Name>GDRIVE_ACCOUNT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>4/AAAgmDTY_q0_MWj4PDpHuX2EQLrjJsrHDI6gIpSEb0q6b6cvfYxV5is</Value>
+      <Name>GDRIVE_AUTHCODE</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
+  <Config Name="Google Authentication Code (from https://goo.gl/jv797S)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/AAAgmDTY_q0_MWj4PDpHuX2EQLrjJsrHDI6gIpSEb0q6b6cvfYxV5is</Config>
+  <Config Name="Host Path 1" Target="/data" Default="/mnt/user/appdata/Insync" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync</Config>
+</Container>
