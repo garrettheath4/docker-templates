@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>tekkit-minecraft-server</Name>
+  <Repository>garrettheath4/tekkit-classic</Repository>
+  <Registry>https://hub.docker.com/r/garrettheath4/tekkit-classic/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/garrettheath4/tekkit-classic/</Support>
+  <Project/>
+  <Overview>Tekkit Classic 1.2.9i Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1597643277</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Tekkit Classic 1.2.9i Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>25575</HostPort>
+        <ContainerPort>25565</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tekkit-minecraft-server/minecraft/world</HostDir>
+      <ContainerDir>/minecraft/world</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_nether</HostDir>
+      <ContainerDir>/minecraft/world_nether</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_the_end</HostDir>
+      <ContainerDir>/minecraft/world_the_end</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tekkit-minecraft-server/minecraft/plugins</HostDir>
+      <ContainerDir>/minecraft/plugins</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>garrettheath4</Value>
+      <Name>SERVER_OP</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Minecraft Port" Target="25565" Default="25565" Mode="tcp" Description="Container Port: 25565" Type="Port" Display="always" Required="true" Mask="false">25575</Config>
+  <Config Name="Minecraft Account" Target="SERVER_OP" Default="" Mode="" Description="Container Variable: SERVER_OP" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
+  <Config Name="World" Target="/minecraft/world" Default="/mnt/user/appdata/tekkit-minecraft-server/minecraft/world" Mode="rw" Description="Container Path: /minecraft/world" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world</Config>
+  <Config Name="Nether" Target="/minecraft/world_nether" Default="/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_nether" Mode="rw" Description="Container Path: /minecraft/world_nether" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_nether</Config>
+  <Config Name="The End" Target="/minecraft/world_the_end" Default="/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_the_end" Mode="rw" Description="Container Path: /minecraft/world_the_end" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_the_end</Config>
+  <Config Name="Plugins" Target="/minecraft/plugins" Default="/mnt/user/appdata/tekkit-minecraft-server/minecraft/plugins" Mode="rw" Description="Container Path: /minecraft/plugins" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/plugins</Config>
+</Container>
