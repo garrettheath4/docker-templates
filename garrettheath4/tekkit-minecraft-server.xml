@@ -9,18 +9,18 @@
   <Privileged>false</Privileged>
   <Support>https://hub.docker.com/r/garrettheath4/tekkit-classic/</Support>
   <Project/>
-  <Overview>Tekkit Classic 1.2.9i Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Overview>
+  <Overview>Tekkit Classic v3.1.2 Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Overview>
   <Category>GameServers:</Category>
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/tekkit-logo.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1597643277</DateInstalled>
+  <DateInstalled>1599514467</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>Tekkit Classic 1.2.9i Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Description>
+  <Description>Tekkit Classic v3.1.2 Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
