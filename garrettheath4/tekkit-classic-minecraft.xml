@@ -53,6 +53,16 @@
       <Name>SERVER_OP</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>A Tekkit Server</Value>
+      <Name>SERVER_MOTD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>true</Value>
+      <Name>SERVER_PVP</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="Minecraft Port" Target="25565" Default="25565" Mode="tcp" Description="Container Port: 25565" Type="Port" Display="always" Required="true" Mask="false">25575</Config>
@@ -60,4 +70,6 @@
   <Config Name="World" Target="/minecraft/world" Default="/mnt/user/appdata/tekkit-classic-minecraft/minecraft/world" Mode="rw" Description="Container Path: /minecraft/world" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world</Config>
   <Config Name="Nether" Target="/minecraft/world_nether" Default="/mnt/user/appdata/tekkit-classic-minecraft/minecraft/world_nether" Mode="rw" Description="Container Path: /minecraft/world_nether" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_nether</Config>
   <Config Name="The End" Target="/minecraft/world_the_end" Default="/mnt/user/appdata/tekkit-classic-minecraft/minecraft/world_the_end" Mode="rw" Description="Container Path: /minecraft/world_the_end" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft/world_the_end</Config>
+  <Config Name="Minecraft Server Message" Target="SERVER_MOTD" Default="A Tekkit Server" Mode="" Description="Container Variable: SERVER_MOTD" Type="Variable" Display="always" Required="false" Mask="false">A Tekkit Server</Config>
+  <Config Name="Enable PvP Mode" Target="SERVER_PVP" Default="true" Mode="" Description="Container Variable: SERVER_PVP" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
 </Container>
