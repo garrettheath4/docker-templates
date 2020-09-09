@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>tekkit-classic-minecraft</Name>
-  <Repository>garrettheath4/tekkit-classic</Repository>
-  <Registry>https://hub.docker.com/r/garrettheath4/tekkit-classic/</Registry>
+  <Name>tekkit-minecraft-server</Name>
+  <Repository>garrettheath4/tekkit-minecraft</Repository>
+  <Registry>https://hub.docker.com/r/garrettheath4/tekkit-minecraft/</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/garrettheath4/tekkit-classic/</Support>
+  <Support>https://hub.docker.com/r/garrettheath4/tekkit-minecraft/</Support>
   <Project/>
-  <Overview>Tekkit Classic v3.1.2 Docker Container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Overview>
+  <Overview>Tekkit Normal v1.2.9i Docker container. Forked from LGDan/tekkit-classic-docker repository on GitHub.</Overview>
   <Category>GameServers:</Category>
   <WebUI/>
   <TemplateURL/>
@@ -32,7 +32,7 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/tekkit-classic-minecraft/minecraft</HostDir>
+      <HostDir>/mnt/user/appdata/tekkit-minecraft-server/minecraft</HostDir>
       <ContainerDir>/minecraft</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -47,5 +47,5 @@
   <Labels/>
   <Config Name="Minecraft Port" Target="25565" Default="25565" Mode="tcp" Description="Container Port: 25565" Type="Port" Display="always" Required="true" Mask="false">25575</Config>
   <Config Name="Minecraft Account" Target="SERVER_OP" Default="" Mode="" Description="Container Variable: SERVER_OP" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
-  <Config Name="Minecraft Data" Target="/minecraft" Default="/mnt/user/appdata/tekkit-classic-minecraft/minecraft" Mode="rw" Description="Container Path: /minecraft" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-classic-minecraft/minecraft</Config>
+  <Config Name="Minecraft Data" Target="/minecraft" Default="/mnt/user/appdata/tekkit-minecraft-server/minecraft" Mode="rw" Description="Container Path: /minecraft" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tekkit-minecraft-server/minecraft</Config>
 </Container>
