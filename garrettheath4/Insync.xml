@@ -6,17 +6,16 @@
   <Network>host</Network>
   <Privileged>false</Privileged>
   <Support/>
-  <Overview>&#xD;
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
+  <Overview>
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
   </Overview>
   <Category>Cloud:</Category>
   <WebUI/>
   <TemplateURL/>
   <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
   <ExtraParams/>
-  <DateInstalled>1519921607</DateInstalled>
-  <Description>&#xD;
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
+  <Description>
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
   </Description>
   <Networking>
     <Mode>host</Mode>
@@ -36,12 +35,12 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>4/AAAgmDTY_q0_MWj4PDpHuX2EQLrjJsrHDI6gIpSEb0q6b6cvfYxV5is</Value>
+      <Value></Value>
       <Name>GDRIVE_AUTHCODE</Name>
       <Mode/>
     </Variable>
   </Environment>
   <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
-  <Config Name="Google Authentication Code (from https://goo.gl/jv797S)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false">4/AAAgmDTY_q0_MWj4PDpHuX2EQLrjJsrHDI6gIpSEb0q6b6cvfYxV5is</Config>
-  <Config Name="Host Path 1" Target="/data" Default="/mnt/user/appdata/Insync" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync</Config>
+  <Config Name="Google Authentication Code (from https://goo.gl/jv797S)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Drive Storage Path" Target="/data" Default="/mnt/user/appdata/Insync" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync</Config>
 </Container>
