@@ -9,7 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://hub.docker.com/r/garrettheath4/tekkit-minecraft/</Support>
   <Project/>
-  <Overview>Tekkit Normal v1.2.9i Docker container. Forked from LGDan/tekkit-classic-docker repository on GitHub.</Overview>
+  <Overview>Tekkit normal v1.2.9i Minecraft server Docker container. Forked from LGDan/tekkit-classic-docker repository on GitHub.</Overview>
   <Category>GameServers:</Category>
   <WebUI/>
   <TemplateURL/>
@@ -19,7 +19,7 @@
   <CPUset/>
   <DonateText/>
   <DonateLink/>
-  <Description>Tekkit Classic v3.1.2 Minecraft server Docker container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Description>
+  <Description>Tekkit normal v1.2.9i Minecraft server Docker container. Forked from dang1t/tekkit-classic-docker repository on GitHub.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
