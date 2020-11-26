@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>rundeck</Name>
+  <Repository>rundeck/rundeck:3.3.6</Repository>
+  <Registry>https://hub.docker.com/r/rundeck/rundeck/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/rundeck/rundeck/</Support>
+  <Project/>
+  <Overview>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://rundeck.gh4.pw:[PORT:4440]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/garrettheath4/docker-templates/raw/master/Rundeck-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1606423151</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data/>
+  <Environment/>
+  <Labels/>
+</Container>
