@@ -17,15 +17,22 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606423151</DateInstalled>
+  <DateInstalled>1606423590</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
   <Networking>
     <Mode>bridge</Mode>
-    <Publish/>
+    <Publish>
+      <Port>
+        <HostPort>4440</HostPort>
+        <ContainerPort>4440</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
   </Networking>
   <Data/>
   <Environment/>
   <Labels/>
+  <Config Name="Web UI" Target="4440" Default="4440" Mode="tcp" Description="Port where the Rundeck web UI is hosted" Type="Port" Display="always" Required="false" Mask="false">4440</Config>
 </Container>
