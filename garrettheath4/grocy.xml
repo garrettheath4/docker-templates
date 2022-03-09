@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>grocy</Name>
+  <Repository>lscr.io/linuxserver/grocy</Repository>
+  <Registry>https://github.com/orgs/linuxserver/packages/container/package/grocy</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/linuxserver/docker-grocy/issues/new/choose</Support>
+  <Project>https://github.com/grocy/grocy</Project>
+  <Overview>Grocy(https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.&#xD;
+&#xD;
+Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool&#xD;
+&#xD;
+For more information on grocy visit their website and check it out: https://grocy.info</Overview>
+  <Category>HomeAutomation: Productivity: MediaApp:Other</Category>
+  <WebUI>http://[IP]:[PORT:9283]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/linuxserver/templates/master/unraid/grocy.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grocy-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1646841136</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Grocy(https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.&#xD;
+&#xD;
+Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool&#xD;
+&#xD;
+For more information on grocy visit their website and check it out: https://grocy.info</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9283</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/grocy</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode>{3}</Mode>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode>{3}</Mode>
+    </Variable>
+    <Variable>
+      <Value>022</Value>
+      <Name>UMASK</Name>
+      <Mode>{3}</Mode>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="WebUI" Target="80" Default="9283" Mode="tcp" Description="will map the container's port 80 to port 9283 on the host" Type="Port" Display="always" Required="true" Mask="false">9283</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/grocy" Mode="rw" Description="this will store any uploaded data on the docker host" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/grocy</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="{3}" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="{3}" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="UMASK" Target="UMASK" Default="022" Mode="{3}" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+</Container>
