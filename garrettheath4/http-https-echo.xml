@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>http-https-echo</Name>
+  <Repository>mendhak/http-https-echo</Repository>
+  <Registry>https://hub.docker.com/r/mendhak/http-https-echo/</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/mendhak/http-https-echo/</Support>
+  <Project/>
+  <Overview>Listens on http/https, echoes details about web requests including headers, body.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container&#xD;
+&#xD;
+Labels for Traefik:v&#xD;
+      - "traefik.enable=true" # &amp;lt;== Enable traefik to proxy this container&#xD;
+      - "traefik.http.routers.nginx-web.rule=Host(`example.com`)" # &amp;lt;== Your Domain Name goes here for the http rule&#xD;
+      - "traefik.http.routers.nginx-web.entrypoints=web" # &amp;lt;== Defining the entrypoint for http, **ref: line 30&#xD;
+      - "traefik.http.routers.nginx-web.middlewares=redirect@file" # &amp;lt;== This is a middleware to redirect to https&#xD;
+      - "traefik.http.routers.nginx-secured.rule=Host(`example.com`)" # &amp;lt;== Your Domain Name for the https rule &#xD;
+      - "traefik.http.routers.nginx-secured.entrypoints=web-secured" # &amp;lt;== Defining entrypoint for https, **ref: line 31&#xD;
+      - "traefik.http.routers.nginx-secured.tls.certresolver=mytlschallenge" # &amp;lt;== Defining certsresolvers for https</Overview>
+  <Category>Network:Web</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/http-https-echo.xml</TemplateURL>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1620652682</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Listens on http/https, echoes details about web requests including headers, body.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container&#xD;
+&#xD;
+Labels for Traefik:v&#xD;
+      - "traefik.enable=true" # &amp;lt;== Enable traefik to proxy this container&#xD;
+      - "traefik.http.routers.nginx-web.rule=Host(`example.com`)" # &amp;lt;== Your Domain Name goes here for the http rule&#xD;
+      - "traefik.http.routers.nginx-web.entrypoints=web" # &amp;lt;== Defining the entrypoint for http, **ref: line 30&#xD;
+      - "traefik.http.routers.nginx-web.middlewares=redirect@file" # &amp;lt;== This is a middleware to redirect to https&#xD;
+      - "traefik.http.routers.nginx-secured.rule=Host(`example.com`)" # &amp;lt;== Your Domain Name for the https rule &#xD;
+      - "traefik.http.routers.nginx-secured.entrypoints=web-secured" # &amp;lt;== Defining entrypoint for https, **ref: line 31&#xD;
+      - "traefik.http.routers.nginx-secured.tls.certresolver=mytlschallenge" # &amp;lt;== Defining certsresolvers for https</Description>
+  <Networking>
+    <Mode>traefik</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8089</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8090</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data/>
+  <Environment/>
+  <Labels>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)</Value>
+      <Name>traefik.http.routers.echo-open.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>web</Value>
+      <Name>traefik.http.routers.echo-open.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>Host(`echo.garrettheath4.com`) || Host(`home.garrettheath4.com`)</Value>
+      <Name>traefik.http.routers.echo-secure.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>websecure</Value>
+      <Name>traefik.http.routers.echo-secure.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>mycertresolver</Value>
+      <Name>traefik.http.routers.echo-secure.tls.certresolver</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+  <Config Name="HTTP Port" Target="80" Default="8089" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8089</Config>
+  <Config Name="HTTPS Port" Target="443" Default="8090" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="false" Mask="false">8090</Config>
+  <Config Name="Traefik enable" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Traefik echo-open rule" Target="traefik.http.routers.echo-open.rule" Default="Host(`echo.gh4.pw`)" Mode="" Description="Container Label: traefik.http.routers.echo-open.rule" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)</Config>
+  <Config Name="Traefik echo-open entrypoints" Target="traefik.http.routers.echo-open.entrypoints" Default="web" Mode="" Description="Container Label: traefik.http.routers.echo-open.entrypoints" Type="Label" Display="always" Required="false" Mask="false">web</Config>
+  <Config Name="Traefik echo-secure rule" Target="traefik.http.routers.echo-secure.rule" Default="Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)" Mode="" Description="Container Label: traefik.http.routers.echo-secure.rule" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.garrettheath4.com`) || Host(`home.garrettheath4.com`)</Config>
+  <Config Name="Traefik echo-secure entrypoints" Target="traefik.http.routers.echo-secure.entrypoints" Default="web-secure" Mode="" Description="Container Label: traefik.http.routers.echo-secure.entrypoints" Type="Label" Display="always" Required="false" Mask="false">websecure</Config>
+  <Config Name="Traefik echo-secure cert resolver" Target="traefik.http.routers.echo-secure.tls.certresolver" Default="mycertresolver" Mode="" Description="Container Label: traefik.http.routers.echo-secure.tls.certresolver" Type="Label" Display="always" Required="false" Mask="false">mycertresolver</Config>
+</Container>
