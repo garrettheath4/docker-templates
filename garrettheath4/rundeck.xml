@@ -12,8 +12,8 @@
   <Overview>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
   <Category>Tools:</Category>
   <WebUI>http://rundeck.gh4.pw:[PORT:4440]/</WebUI>
-  <TemplateURL/>
-  <Icon>https://github.com/garrettheath4/docker-templates/raw/master/Rundeck-logo.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/rundeck.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/rundeck-logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>

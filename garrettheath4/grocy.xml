@@ -16,12 +16,12 @@ Keep track of your purchases, how much food you are wasting, what chores need do
 For more information on grocy visit their website and check it out: https://grocy.info</Overview>
   <Category>HomeAutomation: Productivity: MediaApp:Other</Category>
   <WebUI>https://grocy.techwi.red/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/templates/master/unraid/grocy.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grocy-logo.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/grocy.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/grocy-logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1646848763</DateInstalled>
+  <DateInstalled>1653638935</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Grocy(https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.&#xD;
@@ -50,17 +50,12 @@ For more information on grocy visit their website and check it out: https://groc
     <Variable>
       <Value>99</Value>
       <Name>PUID</Name>
-      <Mode>{3}</Mode>
+      <Mode/>
     </Variable>
     <Variable>
       <Value>100</Value>
       <Name>PGID</Name>
-      <Mode>{3}</Mode>
-    </Variable>
-    <Variable>
-      <Value>022</Value>
-      <Name>UMASK</Name>
-      <Mode>{3}</Mode>
+      <Mode/>
     </Variable>
   </Environment>
   <Labels>
@@ -80,7 +75,7 @@ For more information on grocy visit their website and check it out: https://groc
       <Mode/>
     </Label>
     <Label>
-      <Value>Host(`grocy.gh4.pw`)</Value>
+      <Value>Host(`grocyt.techwi.red`)</Value>
       <Name>traefik.http.routers.http-to-grocy.rule</Name>
       <Mode/>
     </Label>
@@ -110,18 +105,17 @@ For more information on grocy visit their website and check it out: https://groc
       <Mode/>
     </Label>
   </Labels>
-  <Config Name="WebUI" Target="80" Default="9283" Mode="tcp" Description="will map the container's port 80 to port 9283 on the host" Type="Port" Display="always" Required="true" Mask="false">9283</Config>
-  <Config Name="Traefik Enable Flag" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always-hide" Required="false" Mask="false">true</Config>
-  <Config Name="Traefik Docker Network" Target="traefik.docker.network" Default="bridge" Mode="" Description="Container Label: traefik.docker.network" Type="Label" Display="always-hide" Required="false" Mask="false">traefik</Config>
+  <Config Name="Webui Port" Target="80" Default="" Mode="tcp" Description="Webui Port" Type="Port" Display="always" Required="false" Mask="false">9283</Config>
+  <Config Name="Traefik Enable Flag" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Traefik Docker Network" Target="traefik.docker.network" Default="traefik" Mode="" Description="Container Label: traefik.docker.network" Type="Label" Display="always" Required="false" Mask="false">traefik</Config>
   <Config Name="Traefik Router HTTP Entrypoint" Target="traefik.http.routers.http-to-grocy.entrypoints" Default="web" Mode="" Description="Container Label: traefik.http.routers.http-to-grocy.entrypoints" Type="Label" Display="always-hide" Required="false" Mask="false">web</Config>
-  <Config Name="Traefik Router HTTP Rule" Target="traefik.http.routers.http-to-grocy.rule" Default="Host(`grocyt.techwi.red`)" Mode="" Description="Container Label: traefik.http.routers.http-to-grocy.rule" Type="Label" Display="always-hide" Required="false" Mask="false">Host(`grocy.gh4.pw`)</Config>
+  <Config Name="Traefik Router HTTP Rule" Target="traefik.http.routers.http-to-grocy.rule" Default="Host(`grocyt.techwi.red`)" Mode="" Description="Container Label: traefik.http.routers.http-to-grocy.rule" Type="Label" Display="always-hide" Required="false" Mask="false">Host(`grocyt.techwi.red`)</Config>
   <Config Name="Traefik Router HTTPS Entrypoint" Target="traefik.http.routers.https-to-grocy.entrypoints" Default="websecure" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.entrypoints" Type="Label" Display="always-hide" Required="false" Mask="false">websecure</Config>
   <Config Name="Traefik Router HTTPS Rule" Target="traefik.http.routers.https-to-grocy.rule" Default="Host(`grocy.techwi.red`)" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.rule" Type="Label" Display="always-hide" Required="false" Mask="false">Host(`grocy.techwi.red`)</Config>
   <Config Name="Traefik Router HTTPS Middlewares" Target="traefik.http.routers.https-to-grocy.middlewares" Default="my-ip-allowlist@file" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.middlewares" Type="Label" Display="always-hide" Required="false" Mask="false">my-ip-allowlist@file</Config>
   <Config Name="Traefik Router HTTPS TLS Cert Resolver" Target="traefik.http.routers.https-to-grocy.tls.certresolver" Default="letsencrypt-tls" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.tls.certresolver" Type="Label" Display="always-hide" Required="false" Mask="false">letsencrypt-tls</Config>
   <Config Name="Traefik Router HTTPS TLS Options" Target="traefik.http.routers.https-to-grocy.tls.options" Default="mytlsoptions@file" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.tls.options" Type="Label" Display="always-hide" Required="false" Mask="false">mytlsoptions@file</Config>
-  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/grocy" Mode="rw" Description="this will store any uploaded data on the docker host" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/grocy</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="{3}" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="{3}" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
-  <Config Name="UMASK" Target="UMASK" Default="022" Mode="{3}" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+  <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Appdata" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/grocy</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
 </Container>

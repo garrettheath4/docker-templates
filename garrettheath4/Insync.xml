@@ -3,28 +3,41 @@
   <Name>Insync</Name>
   <Repository>garrettheath4/docker-insync</Repository>
   <Registry>https://registry.hub.docker.com/u/garrettheath4/docker-insync/</Registry>
-  <Network>host</Network>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support/>
-  <Overview>
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
+  <Project/>
+  <Overview>&#xD;
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
   </Overview>
   <Category>Cloud:</Category>
   <WebUI/>
-  <TemplateURL/>
-  <Icon>https://pbs.twimg.com/profile_images/525487473917296640/vIfVFBAN_400x400.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/Insync.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/insync-logo.png</Icon>
   <ExtraParams/>
-  <Description>
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1623647188</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>&#xD;
+    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
   </Description>
   <Networking>
-    <Mode>host</Mode>
+    <Mode>bridge</Mode>
     <Publish/>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/Insync</HostDir>
+      <HostDir>/mnt/user/appdata/Insync/data</HostDir>
       <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Insync/config</HostDir>
+      <ContainerDir>/root/.config/Insync</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -39,8 +52,16 @@
       <Name>GDRIVE_AUTHCODE</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>1</Value>
+      <Name>QTWEBENGINE_DISABLE_SANDBOX</Name>
+      <Mode/>
+    </Variable>
   </Environment>
+  <Labels/>
   <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
-  <Config Name="Google Authentication Code (from https://goo.gl/jv797S)" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Drive Storage Path" Target="/data" Default="/mnt/user/appdata/Insync" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync</Config>
+  <Config Name="Google Authentication Code" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE&#13;&#10;Get from &amp;lt;a href=" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="File Storage Location" Target="/data" Default="/mnt/user/appdata/Insync/data" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync/data</Config>
+  <Config Name="Configuration" Target="/root/.config/Insync" Default="/mnt/user/appdata/Insync/config" Mode="rw" Description="Container Path: /root/.config/Insync" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Insync/config</Config>
+  <Config Name="QTWEBENGINE_DISABLE_SANDBOX=1" Target="QTWEBENGINE_DISABLE_SANDBOX" Default="1" Mode="" Description="Allows insync-headless to run as root" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
 </Container>

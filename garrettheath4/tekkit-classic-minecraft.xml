@@ -12,8 +12,8 @@
   <Overview>Tekkit Classic v3.1.2 Minecraft server Docker container. Forked from LGDan/tekkit-classic-docker repository on GitHub.</Overview>
   <Category>GameServers:</Category>
   <WebUI/>
-  <TemplateURL/>
-  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/tekkit-logo.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/tekkit-classic-server.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/tekkit-logo.png</Icon>
   <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
