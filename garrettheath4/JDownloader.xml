@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>JDownloader</Name>
+  <Repository>jlesage/jdownloader-2</Repository>
+  <Registry>https://hub.docker.com/r/jlesage/jdownloader-2/</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/58552-support-jdownloader-2/</Support>
+  <Project>http://jdownloader.org</Project>
+  <ReadMe/>
+  <Overview>&#xD;
+JDownloader 2 is a free, open-source download management tool with a huge community of developers that makes downloading as easy and fast as it should be. Users can start, stop or pause downloads, set bandwith limitations, auto-extract archives and much more. It's an easy-to-extend framework that can save hours of your valuable time every day!&#xD;
+&#xD;
+The GUI of the application is accessed through a modern web browser (no installation or configuration needed on the client side) or via any VNC client.&#xD;
+&#xD;
+Also, being based on Alpine Linux, size of this container is very small.&#xD;
+&#xD;
+For a complete documentation of this container, see https://github.com/jlesage/docker-jdownloader-2#readme&#xD;
+  </Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:5800]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/jdownloader-2.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/jdownloader-2-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1795139359</DateInstalled>
+  <DonateText/>
+  <DonateLink>https://paypal.me/JocelynLeSage/0usd</DonateLink>
+  <Requires/>
+  <Config Name="Traefik HTTP Port" Target="traefik.http.services.jdownloader.loadbalancer.server.port" Default="5800" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">5800</Config>
+  <Config Name="Output Directory" Target="/output" Default="" Mode="rw" Description="This is the default output folder for downloaded files." Type="Path" Display="always-hide" Required="null" Mask="null">/mnt/user/GarrettFiles/UnsafeDownloads/</Config>
+  <Config Name="Config Directory" Target="/config" Default="/mnt/user/appdata/jdownloader-2" Mode="rw" Description="This is where the application stores its configuration, states, log and any files needing persistency." Type="Path" Display="always-hide" Required="null" Mask="null">/mnt/user/appdata/JDownloader2</Config>
+  <Config Name="User ID" Target="USER_ID" Default="99" Mode="" Description="ID of the user the application runs as." Type="Variable" Display="advanced-hide" Required="True" Mask="False">99</Config>
+  <Config Name="Group ID" Target="GROUP_ID" Default="100" Mode="" Description="ID of the group the application runs as." Type="Variable" Display="advanced-hide" Required="True" Mask="False">100</Config>
+  <Config Name="Umask" Target="UMASK" Default="000" Mode="" Description="Mask that controls how file permissions are set for newly created files. The value of the mask is in octal notation." Type="Variable" Display="advanced" Required="False" Mask="False">000</Config>
+  <Config Name="Niceness (priority)" Target="APP_NICENESS" Default="0" Mode="" Description="Priority at which the application should run. A niceness value of -20 is the highest priority and 19 is the lowest priority. NOTE: Setting a negative value requires additional permissions. Thus, " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1920" Mode="" Description="Width (in pixels) of the application's window." Type="Variable" Display="advanced" Required="False" Mask="False">1280</Config>
+  <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="1080" Mode="" Description="Height (in pixels) of the application's window." Type="Variable" Display="advanced" Required="False" Mask="False">768</Config>
+  <Config Name="Secure Connection" Target="SECURE_CONNECTION" Default="0" Mode="" Description="Whether or not an encrypted connection should be used to access the application's GUI. Set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Extra x11vnc Options" Target="X11VNC_EXTRA_OPTS" Default="" Mode="" Description="Extra options to pass to the x11vnc server running in the Docker container.Warning: For advanced users. Do not use unless you know what you are doing." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="WEB Port for GUI (Bridge Network Type)" Target="5800" Default="7807" Mode="tcp" Description="Port to access the application's GUI via the web interface.  NOTE: This setting is relevant only when the Network Type is set to " Type="Port" Display="advanced-hide" Required="True" Mask="False">7807</Config>
+  <Config Name="VNC Port for GUI (Bridge Network Type)" Target="5900" Default="7907" Mode="tcp" Description="Port to access the application's GUI via VNC protocol. Optional if no VNC client is used.  NOTE: This setting is relevant only when the Network Type is set to " Type="Port" Display="advanced-hide" Required="False" Mask="False">7907</Config>
+  <Config Name="Install Packages" Target="INSTALL_EXTRA_PKGS" Default="" Mode="" Description="Space-separated list of Alpine Linux packages to install.  See https://pkgs.alpinelinux.org for the list of available Alpine Linux packages." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Dark Mode" Target="DARK_MODE" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Secure Connection VNC Method" Target="SECURE_CONNECTION_VNC_METHOD" Default="SSL" Mode="" Description="Method used to perform the secure VNC connection. Possible values are " Type="Variable" Display="advanced" Required="False" Mask="False">SSL</Config>
+  <Config Name="Secure Connection Certificate Check Interval" Target="SECURE_CONNECTION_CERTS_CHECK_INTERVAL" Default="60" Mode="" Description="Interval, in seconds, at which the system verifies if web or VNC certificates have changed. When a change is detected, the affected services are automatically restarted. A value of " Type="Variable" Display="advanced" Required="False" Mask="False">60</Config>
+  <Config Name="Web Listening Port (Non-Bridge Network Type)" Target="WEB_LISTENING_PORT" Default="5800" Mode="" Description="Port used by the web server to serve the UI of the application. This port is used internally by the container and it is usually not required to be changed. NOTE: This setting is relevant only when the Network Type is set to something else than Bridge." Type="Variable" Display="advanced" Required="False" Mask="False">5800</Config>
+  <Config Name="VNC Listening Port (Non-Bridge Network Type)" Target="VNC_LISTENING_PORT" Default="5900" Mode="" Description="Port used by the VNC server to serve the UI of the application. This port is used internally by the container and it is usually not required to be changed. NOTE: This setting is relevant only when the Network Type is set to something else than Bridge." Type="Variable" Display="advanced" Required="False" Mask="False">5900</Config>
+  <Config Name="MyJDownloader Email" Target="MYJDOWNLOADER_EMAIL" Default="" Mode="" Description="Email address of the MyJDownloader account to use.  Note that this can also be configured via the JDownloader GUI." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="MyJDownloader Password" Target="MYJDOWNLOADER_PASSWORD" Default="" Mode="" Description="Password of the MyJDownloader account to use.  Note that this can also be configured via the JDownloader GUI." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="MyJDownloader Device Name" Target="MYJDOWNLOADER_DEVICE_NAME" Default="" Mode="" Description="The name of this JDownloader instance.  Note that this can also be configured via the JDownloader GUI." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="Headless Mode" Target="JDOWNLOADER_HEADLESS" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Maximum Memory" Target="JDOWNLOADER_MAX_MEM" Default="" Mode="" Description="Maximum amount of memory JDownloader is allowed to use.  One of the following memory unit (case insensitive) should be added as a suffix to the size: G, M or K." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="Web Audio" Target="WEB_AUDIO" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Web Authentication" Target="WEB_AUTHENTICATION" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Web Authentication Username" Target="WEB_AUTHENTICATION_USERNAME" Default="" Mode="" Description="Optional username to configure for the web authentication. This is a quick and easy way to configure credentials for a single user. To configure credentials in a more secure way, or to add more users, see the documentation." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="Web Authentication Password" Target="WEB_AUTHENTICATION_PASSWORD" Default="" Mode="" Description="Optional password to configure for the web authentication. This is a quick and easy way to configure credentials for a single user. To configure credentials in a more secure way, or to add more users, see the documentation." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Web Authentication Token Validity Time" Target="WEB_AUTHENTICATION_TOKEN_VALIDITY_TIME" Default="24" Mode="" Description="The lifetime of a token, in hours. A token is attributed to the user after a successful login. As long as the token is valid, user can access the application's GUI without having to log in again. Once the token expires, the login page is prompted again." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <TailscaleStateDir/>
+</Container>

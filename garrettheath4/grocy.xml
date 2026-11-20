@@ -1,121 +1,36 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>grocy</Name>
-  <Repository>lscr.io/linuxserver/grocy</Repository>
+  <Repository>lscr.io/linuxserver/grocy:latest</Repository>
   <Registry>https://github.com/orgs/linuxserver/packages/container/package/grocy</Registry>
   <Network>traefik</Network>
   <MyIP/>
+  <MyMAC/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/linuxserver/docker-grocy/issues/new/choose</Support>
   <Project>https://github.com/grocy/grocy</Project>
+  <ReadMe/>
   <Overview>Grocy(https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.&#xD;
 &#xD;
 Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool&#xD;
 &#xD;
 For more information on grocy visit their website and check it out: https://grocy.info</Overview>
   <Category>HomeAutomation: Productivity: MediaApp:Other</Category>
-  <WebUI>https://grocy.techwi.red/</WebUI>
+  <WebUI>https://grocy.gh4.red/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/grocy.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/grocy-logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1653638935</DateInstalled>
+  <DateInstalled>1780188167</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>Grocy(https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.&#xD;
-&#xD;
-Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool&#xD;
-&#xD;
-For more information on grocy visit their website and check it out: https://grocy.info</Description>
-  <Networking>
-    <Mode>traefik</Mode>
-    <Publish>
-      <Port>
-        <HostPort>9283</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/grocy</HostDir>
-      <ContainerDir>/config</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
-  <Environment>
-    <Variable>
-      <Value>99</Value>
-      <Name>PUID</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>100</Value>
-      <Name>PGID</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
-  <Labels>
-    <Label>
-      <Value>true</Value>
-      <Name>traefik.enable</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>traefik</Value>
-      <Name>traefik.docker.network</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>web</Value>
-      <Name>traefik.http.routers.http-to-grocy.entrypoints</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>Host(`grocyt.techwi.red`)</Value>
-      <Name>traefik.http.routers.http-to-grocy.rule</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>websecure</Value>
-      <Name>traefik.http.routers.https-to-grocy.entrypoints</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>Host(`grocy.techwi.red`)</Value>
-      <Name>traefik.http.routers.https-to-grocy.rule</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>my-ip-allowlist@file</Value>
-      <Name>traefik.http.routers.https-to-grocy.middlewares</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>letsencrypt-tls</Value>
-      <Name>traefik.http.routers.https-to-grocy.tls.certresolver</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>mytlsoptions@file</Value>
-      <Name>traefik.http.routers.https-to-grocy.tls.options</Name>
-      <Mode/>
-    </Label>
-  </Labels>
+  <Requires/>
   <Config Name="Webui Port" Target="80" Default="" Mode="tcp" Description="Webui Port" Type="Port" Display="always" Required="false" Mask="false">9283</Config>
-  <Config Name="Traefik Enable Flag" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Traefik Docker Network" Target="traefik.docker.network" Default="traefik" Mode="" Description="Container Label: traefik.docker.network" Type="Label" Display="always" Required="false" Mask="false">traefik</Config>
-  <Config Name="Traefik Router HTTP Entrypoint" Target="traefik.http.routers.http-to-grocy.entrypoints" Default="web" Mode="" Description="Container Label: traefik.http.routers.http-to-grocy.entrypoints" Type="Label" Display="always-hide" Required="false" Mask="false">web</Config>
-  <Config Name="Traefik Router HTTP Rule" Target="traefik.http.routers.http-to-grocy.rule" Default="Host(`grocyt.techwi.red`)" Mode="" Description="Container Label: traefik.http.routers.http-to-grocy.rule" Type="Label" Display="always-hide" Required="false" Mask="false">Host(`grocyt.techwi.red`)</Config>
-  <Config Name="Traefik Router HTTPS Entrypoint" Target="traefik.http.routers.https-to-grocy.entrypoints" Default="websecure" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.entrypoints" Type="Label" Display="always-hide" Required="false" Mask="false">websecure</Config>
-  <Config Name="Traefik Router HTTPS Rule" Target="traefik.http.routers.https-to-grocy.rule" Default="Host(`grocy.techwi.red`)" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.rule" Type="Label" Display="always-hide" Required="false" Mask="false">Host(`grocy.techwi.red`)</Config>
-  <Config Name="Traefik Router HTTPS Middlewares" Target="traefik.http.routers.https-to-grocy.middlewares" Default="my-ip-allowlist@file" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.middlewares" Type="Label" Display="always-hide" Required="false" Mask="false">my-ip-allowlist@file</Config>
-  <Config Name="Traefik Router HTTPS TLS Cert Resolver" Target="traefik.http.routers.https-to-grocy.tls.certresolver" Default="letsencrypt-tls" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.tls.certresolver" Type="Label" Display="always-hide" Required="false" Mask="false">letsencrypt-tls</Config>
-  <Config Name="Traefik Router HTTPS TLS Options" Target="traefik.http.routers.https-to-grocy.tls.options" Default="mytlsoptions@file" Mode="" Description="Container Label: traefik.http.routers.https-to-grocy.tls.options" Type="Label" Display="always-hide" Required="false" Mask="false">mytlsoptions@file</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Specify a timezone to use. See: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List" Type="Variable" Display="always-hide" Required="false" Mask="false">America/New_York</Config>
   <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Appdata" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/grocy</Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <TailscaleStateDir/>
 </Container>

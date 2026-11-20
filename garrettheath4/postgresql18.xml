@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>postgresql18</Name>
+  <Repository>postgres:18</Repository>
+  <Registry>https://registry.hub.docker.com/_/postgres/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/193655-support-skylinars-repository/</Support>
+  <Project>https://www.postgresql.org/</Project>
+  <ReadMe/>
+  <Overview>PostgreSQL 18 is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance. This template uses the official PostgreSQL Docker image @ https://hub.docker.com/_/postgres/.</Overview>
+  <Category>Network:Management Productivity: Tools:Utilities</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/postgresql18.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Skylinar/unraid_templates/refs/heads/main/images/postgresql.png?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs>&amp;amp;&amp;amp; docker network connect postgres postgresql18</PostArgs>
+  <CPUset/>
+  <DateInstalled>1778339398</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port: PostgreSQL access port" Target="5432" Default="5432" Mode="tcp" Description="PostgreSQL TCP connection port." Type="Port" Display="always-hide" Required="true" Mask="false">5432</Config>
+  <Config Name="Path: /var/lib/postgresql" Target="/var/lib/postgresql" Default="/mnt/user/appdata/postgresql18" Mode="rw" Description="PostgreSQL data storage location." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/postgresql18</Config>
+  <Config Name="Variable: POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Initial superuser password (required)." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Variable: POSTGRES_USER" Target="POSTGRES_USER" Default="" Mode="{3}" Description="Initial superuser name (default: postgres)." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Variable: POSTGRES_DB" Target="POSTGRES_DB" Default="" Mode="{3}" Description="Initial database name (default: postgres)." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <TailscaleStateDir/>
+</Container>

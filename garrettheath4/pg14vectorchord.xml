@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>pg14vectorchord</Name>
+  <Repository>ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23</Repository>
+  <Registry/>
+  <Network>pg14vector</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://docs.immich.app/install/upgrading/#migrating-to-vectorchord</Support>
+  <Project>https://github.com/immich-app/base-images</Project>
+  <ReadMe/>
+  <Overview/>
+  <Category>Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/refs/heads/master/spaceinvaderone/docker_icons/postgresql-immich-logo.png</Icon>
+  <ExtraParams>--restart unless-stopped --shm-size=128mb</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1778301370</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Postgres Password" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Postgres User" Target="POSTGRES_USER" Default="immich" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">immich</Config>
+  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="immich" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">immich</Config>
+  <Config Name="Postgres Init DB Args" Target="POSTGRES_INITDB_ARGS" Default="--data-checksums" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">--data-checksums</Config>
+  <Config Name="Database Data Location" Target="/var/lib/postgresql/data" Default="/mnt/user/appdata/pg14vectorchord/postgresql/data" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/pg14vectorchord/postgresql/data</Config>
+  <TailscaleStateDir/>
+</Container>

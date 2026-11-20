@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>SearXNG</Name>
+  <Repository>searxng/searxng</Repository>
+  <Registry>https://hub.docker.com/r/searxng/searxng</Registry>
+  <Network>searxng</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/130158-support-kilrahsearxng/</Support>
+  <Project>https://github.com/searxng/searxng</Project>
+  <ReadMe/>
+  <Overview>Privacy-respecting, hackable metasearch engine.&#xD;
+&#xD;
+SearXNG is a fork of searx.</Overview>
+  <Category>Productivity: Other:</Category>
+  <WebUI>https://searxng.gh4.red/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/searxng.xml</TemplateURL>
+  <Icon>https://github.com/kilrah/unraid-docker-templates/raw/main/icons/searxng.png</Icon>
+  <ExtraParams/>
+  <PostArgs>&amp;amp;&amp;amp; docker network connect traefik SearXNG</PostArgs>
+  <CPUset/>
+  <DateInstalled>1788046376</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port" Target="8080" Default="8080" Mode="tcp" Description="Port" Type="Port" Display="always" Required="true" Mask="false">7964</Config>
+  <Config Name="Config" Target="/etc/searxng" Default="/mnt/user/appdata/searxng/" Mode="rw" Description="SearXNG's config location" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/searxng/</Config>
+  <Config Name="SearXNG Instance Name" Target="INSTANCE_NAME" Default="" Mode="" Description="Your SearXNG instance name" Type="Variable" Display="always" Required="false" Mask="false">Cosmia</Config>
+  <TailscaleStateDir/>
+</Container>

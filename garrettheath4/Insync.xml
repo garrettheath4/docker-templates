@@ -5,10 +5,12 @@
   <Registry>https://registry.hub.docker.com/u/garrettheath4/docker-insync/</Registry>
   <Network>bridge</Network>
   <MyIP/>
+  <MyMAC/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support/>
   <Project/>
+  <ReadMe/>
   <Overview>&#xD;
     Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
   </Overview>
@@ -19,49 +21,14 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1623647188</DateInstalled>
+  <DateInstalled>1795133535</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>&#xD;
-    Insync extends Drive's web functionality to your desktop by integrating tightly with Windows, Mac and Linux so you can get work done.&#xD;
-  </Description>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish/>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/Insync/data</HostDir>
-      <ContainerDir>/data</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/mnt/user/appdata/Insync/config</HostDir>
-      <ContainerDir>/root/.config/Insync</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
-  <Environment>
-    <Variable>
-      <Value>garrettheath4</Value>
-      <Name>GDRIVE_ACCOUNT</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value></Value>
-      <Name>GDRIVE_AUTHCODE</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>1</Value>
-      <Name>QTWEBENGINE_DISABLE_SANDBOX</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
-  <Labels/>
-  <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="Container Variable: GDRIVE_ACCOUNT" Type="Variable" Display="always" Required="true" Mask="false">garrettheath4</Config>
-  <Config Name="Google Authentication Code" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="Container Variable: GDRIVE_AUTHCODE&#13;&#10;Get from &amp;lt;a href=" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="File Storage Location" Target="/data" Default="/mnt/user/appdata/Insync/data" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync/data</Config>
-  <Config Name="Configuration" Target="/root/.config/Insync" Default="/mnt/user/appdata/Insync/config" Mode="rw" Description="Container Path: /root/.config/Insync" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Insync/config</Config>
+  <Requires/>
+  <Config Name="Google Account (email)" Target="GDRIVE_ACCOUNT" Default="example@gmail.com" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Google Authentication Code" Target="GDRIVE_AUTHCODE" Default="4/1a2b3c" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="File Storage Location" Target="/data" Default="/mnt/user/appdata/Insync/data" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Insync/data</Config>
+  <Config Name="Configuration" Target="/root/.config/Insync" Default="/mnt/user/appdata/Insync/config" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Insync/config</Config>
   <Config Name="QTWEBENGINE_DISABLE_SANDBOX=1" Target="QTWEBENGINE_DISABLE_SANDBOX" Default="1" Mode="" Description="Allows insync-headless to run as root" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <TailscaleStateDir/>
 </Container>

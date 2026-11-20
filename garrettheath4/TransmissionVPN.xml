@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>TransmissionVPN</Name>
+  <Repository>haugene/transmission-openvpn:latest</Repository>
+  <Registry>https://hub.docker.com/r/haugene/transmission-openvpn/</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://forums.unraid.net/topic/60143-support-clowryms-docker-repository/</Support>
+  <Project>https://github.com/haugene/docker-transmission-openvpn</Project>
+  <Overview>Transmission is a full-featured ​BitTorrent client for Linux, OS X, Unix and Windows.&#xD;
+&#xD;
+    This Docker includes OpenVPN to ensure a secure and private connection to the Internet, including use of iptables to prevent IP leakage when the tunnel is down. It also includes Privoxy to allow unfiltered access to index sites, to use Privoxy please point your application at "host ip:8118"&#xD;
+&#xD;
+&#xD;
+    Configuration&#xD;
+&#xD;
+    /config This is where Transmission will store it's configuration file, database and logs.&#xD;
+&#xD;
+    /data This is where Transmision will store data downloaded, watched folder, and archived torrents.&#xD;
+&#xD;
+&#xD;
+    Notes&#xD;
+&#xD;
+    For help on configuration for PIA, AirVPN and custom VPN providers please go here http://forums.unraid.net/index.php?topic=45812.msg437678#msg437678&#xD;
+&#xD;
+    IMPORTANT - To allow access to the Transmission webui, Privoxy and Transmission deamon you need to specify you LAN network, using CIDR notation for the mask, a subnet mask of 255.255.255.0 would equate to CIDR /24, 255.255.0.0 would equate to CIDR /16.</Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:9091]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/clowrym/docker-templates/master/Transmission_VPN.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/activ/docker-templates/master/activ/images/transmission-icon.png</Icon>
+  <ExtraParams>--cap-add=NET_ADMIN --restart=always --log-opt max-size=50m --log-driver json-file --dns 1.1.1.2 --dns 1.0.0.2</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1767670194</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Host Port 1" Target="9091" Default="9091" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">9091</Config>
+  <Config Name="Host Path 2" Target="/data" Default="path for downloads" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Torrents/</Config>
+  <Config Name="Key 2" Target="OPENVPN_USERNAME" Default="vpn username" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Key 3" Target="OPENVPN_PASSWORD" Default="vpn password" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="OPENVPN_CONFIG" Target="OPENVPN_CONFIG" Default="au_melbourne|au_sydney|brazil|ca_north_York|ca_toronto|denmark|finland|france|germany|hong_kong|india|ireland|israel|italy|japan|mexico|netherlands|new_zealand|norway|romania|singapore|sweden|switzerland|turkey|uk_london|uk_southampton|us_california|us_east|us_florida|us_midwest|us_new_york_city|us_seattle|us_silicon_valley|us_texas|us_west|default|" Mode="" Description="OPENVPN_CONFIG" Type="Variable" Display="always" Required="false" Mask="false">us_east</Config>
+  <Config Name="OPENVPN_PROVIDER" Target="OPENVPN_PROVIDER" Default="ANONINE|BTGUARD|CRYPTOSTORM|CUSTOM|FROOT|FROSTVPN|GIGANEWS|HIDEME|HIDEMYASS|INTEGRITYVPN|IPREDATOR|IPVANISH|IVACY|IVPN|NEWSHOSTING|NORDVPN|OVPN|PIA|PRIVATEVPN|PRIVADO|PROXPN|PUREVPN|RA4W|SLICKVPN|SMARTVPNTIGER|TORGUARD|TUNNELBEAR|USENETSERVER|WINDSCRIBE|VPNHT|VPNBOOK|VPNTUNNEL|VPNUNLIMITED|VYPRVPN|" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">PIA</Config>
+  <Config Name="LOCAL_NETWORK" Target="LOCAL_NETWORK" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">192.168.0.0/21</Config>
+  <Config Name="Transmission_Username" Target="TRANSMISSION_RPC_USERNAME" Default="admin" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">garrett</Config>
+  <Config Name="Transmission_Password" Target="TRANSMISSION_RPC_PASSWORD" Default="password" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="OpenVPN_OPTIONS" Target="OPENVPN_OPTS" Default="" Mode="" Description="--inactive 3600 --ping 10 --ping-exit 60 --restart=always" Type="Variable" Display="always" Required="false" Mask="false">--inactive 3600 --ping 10 --ping-exit 60 --mute-replay-warnings</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="Download" Target="/downloads" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/Torrents/</Config>
+  <Config Name="Watch Folder" Target="/watch" Default="/mnt/user/T_Media/Torrent/watch/" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/Torrents/watch</Config>
+  <Config Name="Trans_Option_Download Dir" Target="TRANSMISSION_DOWNLOAD_DIR" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">/downloads</Config>
+  <Config Name="TRANSMISSION_RPC_AUTHENTICATION_REQUIRED" Target="TRANSMISSION_RPC_AUTHENTICATION_REQUIRED" Default="true|false" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="RATIO_LIMIT_ENABLED" Target="TRANSMISSION_RATIO_LIMIT_ENABLED" Default="true|false" Mode="" Description="Enable Ratio Limits" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="TRANSMISSION_DOWNLOAD_QUEUE_SIZE" Target="TRANSMISSION_DOWNLOAD_QUEUE_SIZE" Default="10" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">15</Config>
+  <Config Name="TRANSMISSION_CACHE_SIZE_MB" Target="TRANSMISSION_CACHE_SIZE_MB" Default="10" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">10</Config>
+  <Config Name="TRANSMISSION_INCOMPLETE_DIR" Target="TRANSMISSION_INCOMPLETE_DIR" Default="/downloads/incomplete" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">/downloads/incomplete</Config>
+  <Config Name="WEB_GUI" Target="TRANSMISSION_WEB_UI" Default="transmission-web-control|kettu|combustion" Mode="" Description="Web UI Options" Type="Variable" Display="always" Required="false" Mask="false">transmission-web-control</Config>
+  <Config Name="GLOBAL_APPLY_PERMISSIONS" Target="GLOBAL_APPLY_PERMISSIONS" Default="true|false" Mode="" Description="Apply permsissions Globally on Transmissions files / Folders" Type="Variable" Display="always" Required="true" Mask="false">false</Config>
+  <Config Name="WebProxy" Target="WEBPROXY_ENABLED" Default="false" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">false</Config>
+  <Config Name="PIA_OPENVPN_CONFIG_BUNDLE=openvpn-tcp-nextgen" Target="PIA_OPENVPN_CONFIG_BUNDLE" Default="openvpn-tcp|openvpn|openvpn-strong|openvpn-strong-tcp" Mode="" Description="testing openvpn-tcp-nextgen" Type="Variable" Display="always" Required="false" Mask="false">openvpn-tcp</Config>
+  <Config Name="Host Path 4" Target="/config" Default="/mnt/user/appdata/Transmission_VPN" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Transmission_VPN</Config>
+  <TailscaleStateDir/>
+</Container>

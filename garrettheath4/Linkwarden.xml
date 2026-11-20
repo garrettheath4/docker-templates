@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Linkwarden</Name>
+  <Repository>ghcr.io/linkwarden/linkwarden</Repository>
+  <Registry>https://github.com/linkwarden/linkwarden</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/158420-support-unra1duser-linkwarden/</Support>
+  <Project>https://linkwarden.app/</Project>
+  <ReadMe/>
+  <Overview>|-------------------------------------------------&#xD;
+| General Information&#xD;
+|-------------------------------------------------&#xD;
+Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.&#xD;
+&#xD;
+The objective is to organize useful webpages and articles you find across the web in one place, and since useful webpages can go away (see the inevitability of Link Rot), Linkwarden also saves a copy of each webpage as a Screenshot and PDF, ensuring accessibility even if the original content is no longer available.&#xD;
+&#xD;
+Additionally, Linkwarden is designed with collaboration in mind, sharing links with the public and/or allowing multiple users to work together seamlessly.&#xD;
+&#xD;
+|-------------------------------------------------&#xD;
+| Register for an Account&#xD;
+|-------------------------------------------------&#xD;
+After the start of the Container you need to Sign up for an Account in your own Application.&#xD;
+&#xD;
+|-------------------------------------------------&#xD;
+| SSO/OAuth Integrations&#xD;
+|-------------------------------------------------&#xD;
+Here are all the SSO/OAuth integrations Linkwarden has -&amp;gt; https://docs.linkwarden.app/self-hosting/sso-oauth</Overview>
+  <Category>Tools:Utilities Other: Network:Web Network:Proxy Network:Management Network:Other</Category>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/UNRA1DUser/unraid-docker-templates/main/templates/Linkwarden.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/UNRA1DUser/unraid-docker-templates/main/templates/img/linkwarden.png</Icon>
+  <ExtraParams>--memory=2G --restart=unless-stopped</ExtraParams>
+  <PostArgs>&amp;amp;&amp;amp; docker network connect postgres Linkwarden</PostArgs>
+  <CPUset/>
+  <DateInstalled>1795139537</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="NEXTAUTH_SECRET" Target="NEXTAUTH_SECRET" Default="very_sensitive_secret" Mode="" Description="Used to encrypt the NextAuth.js JWT, and to hash email verification tokens. This is the default value for the secret option in NextAuth and Middleware" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="NEXTAUTH_URL" Target="NEXTAUTH_URL" Default="http://localhost:3000/api/v1/auth" Mode="" Description="Change localhost to your IP. The Port should be the same as the WebUI Port" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:3000/api/v1/auth</Config>
+  <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="postgresql://[USERNAME]:[PASSWORD]@localhost:[PORT]/[DATABASE]" Mode="" Description="postgresql://[USERNAME]:[PASSWORD]@localhost:[PORT]/[DATABASE]" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Data" Target="/data/data" Default="/mnt/cache/appdata/linkwarden" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/linkwarden</Config>
+  <Config Name="PAGINATION_TAKE_COUNT" Target="PAGINATION_TAKE_COUNT" Default="20" Mode="" Description="The numbers of Links to fetch every time you reach to the bottom of the webpage" Type="Variable" Display="advanced" Required="false" Mask="false">20</Config>
+  <Config Name="STORAGE_FOLDER" Target="STORAGE_FOLDER" Default="/data" Mode="" Description="The folder to store your Screenshot's, PDF's, and profile photos" Type="Variable" Display="advanced" Required="false" Mask="false">/data</Config>
+  <Config Name="AUTOSCROLL_TIMEOUT" Target="AUTOSCROLL_TIMEOUT" Default="30" Mode="" Description="The amount of time to wait for the website to be archived (in seconds)" Type="Variable" Display="advanced" Required="false" Mask="false">30</Config>
+  <Config Name="RE_ARCHIVE_LIMIT" Target="RE_ARCHIVE_LIMIT" Default="5" Mode="" Description="Adjusts how often a user can trigger a new archive for each link (in minutes)" Type="Variable" Display="advanced" Required="false" Mask="false">5</Config>
+  <Config Name="NEXT_PUBLIC_DISABLE_REGISTRATION" Target="NEXT_PUBLIC_DISABLE_REGISTRATION" Default="false|true" Mode="" Description="If set to true, registration will be disabled." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="NEXT_PUBLIC_CREDENTIALS_ENABLED" Target="NEXT_PUBLIC_CREDENTIALS_ENABLED" Default="true|false" Mode="" Description="If set to true, users will be able to login with username and password." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_NEW_SSO_USERS" Target="DISABLE_NEW_SSO_USERS" Default="false|true" Mode="" Description="If set to true, new users will not be able to login with SSO" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="NEXT_PUBLIC_EMAIL_PROVIDER" Target="NEXT_PUBLIC_EMAIL_PROVIDER" Default="false|true" Mode="" Description="If set to true, email will be enabled and you'll need to define the next two variables below" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="EMAIL_FROM" Target="EMAIL_FROM" Default="" Mode="" Description="The email that will send the verification emails" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="EMAIL_SERVER" Target="EMAIL_SERVER" Default="" Mode="" Description="That sensitive string that starts with smtp://..." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <TailscaleStateDir/>
+</Container>

@@ -88,12 +88,12 @@ Labels for Traefik:v&#xD;
       <Mode/>
     </Label>
   </Labels>
-  <Config Name="HTTP Port" Target="80" Default="8089" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8089</Config>
-  <Config Name="HTTPS Port" Target="443" Default="8090" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="false" Mask="false">8090</Config>
-  <Config Name="Traefik enable" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Traefik echo-open rule" Target="traefik.http.routers.echo-open.rule" Default="Host(`echo.gh4.pw`)" Mode="" Description="Container Label: traefik.http.routers.echo-open.rule" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)</Config>
-  <Config Name="Traefik echo-open entrypoints" Target="traefik.http.routers.echo-open.entrypoints" Default="web" Mode="" Description="Container Label: traefik.http.routers.echo-open.entrypoints" Type="Label" Display="always" Required="false" Mask="false">web</Config>
-  <Config Name="Traefik echo-secure rule" Target="traefik.http.routers.echo-secure.rule" Default="Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)" Mode="" Description="Container Label: traefik.http.routers.echo-secure.rule" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.garrettheath4.com`) || Host(`home.garrettheath4.com`)</Config>
-  <Config Name="Traefik echo-secure entrypoints" Target="traefik.http.routers.echo-secure.entrypoints" Default="web-secure" Mode="" Description="Container Label: traefik.http.routers.echo-secure.entrypoints" Type="Label" Display="always" Required="false" Mask="false">websecure</Config>
-  <Config Name="Traefik echo-secure cert resolver" Target="traefik.http.routers.echo-secure.tls.certresolver" Default="mycertresolver" Mode="" Description="Container Label: traefik.http.routers.echo-secure.tls.certresolver" Type="Label" Display="always" Required="false" Mask="false">mycertresolver</Config>
+  <Config Name="HTTP Port" Target="80" Default="8089" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8089</Config>
+  <Config Name="HTTPS Port" Target="443" Default="8090" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8090</Config>
+  <Config Name="Traefik enable" Target="traefik.enable" Default="true" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Traefik echo-open rule" Target="traefik.http.routers.echo-open.rule" Default="Host(`echo.gh4.pw`)" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)</Config>
+  <Config Name="Traefik echo-open entrypoints" Target="traefik.http.routers.echo-open.entrypoints" Default="web" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">web</Config>
+  <Config Name="Traefik echo-secure rule" Target="traefik.http.routers.echo-secure.rule" Default="Host(`echo.gh4.pw`) || Host(`echo.garrettheath4.com`)" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">Host(`echo.garrettheath4.com`) || Host(`home.garrettheath4.com`)</Config>
+  <Config Name="Traefik echo-secure entrypoints" Target="traefik.http.routers.echo-secure.entrypoints" Default="web-secure" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">websecure</Config>
+  <Config Name="Traefik echo-secure cert resolver" Target="traefik.http.routers.echo-secure.tls.certresolver" Default="mycertresolver" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">mycertresolver</Config>
 </Container>

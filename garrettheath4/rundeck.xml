@@ -1,45 +1,32 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>rundeck</Name>
-  <Repository>rundeck/rundeck:3.3.6</Repository>
+  <Repository>rundeck/rundeck:5.17.0-20251103</Repository>
   <Registry>https://hub.docker.com/r/rundeck/rundeck/</Registry>
-  <Network>bridge</Network>
+  <Network>traefik</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://hub.docker.com/r/rundeck/rundeck/</Support>
   <Project/>
   <Overview>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
-  <Category>Tools:</Category>
-  <WebUI>http://rundeck.gh4.pw:[PORT:4440]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/rundeck.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/garrettheath4/docker-templates/master/garrettheath4/img/rundeck-logo.png</Icon>
+  <Category>Productivity:</Category>
+  <WebUI>https://rundeck.gh4.red/</WebUI>
+  <TemplateURL/>
+  <Icon>https://images.icon-icons.com/2699/PNG/512/rundeck_logo_icon_170767.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606442067</DateInstalled>
+  <DateInstalled>1762313281</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>Avoid interruptions! Self service with Rundeck!   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>4440</HostPort>
-        <ContainerPort>4440</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data/>
-  <Environment>
-    <Variable>
-      <Value>http://rundeck.gh4.pw:4440</Value>
-      <Name>RUNDECK_GRAILS_URL</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
-  <Labels/>
-  <Config Name="Web UI" Target="4440" Default="4440" Mode="tcp" Description="Port where the Rundeck web UI is hosted" Type="Port" Display="always" Required="false" Mask="false">4440</Config>
-  <Config Name="RUNDECK_GRAILS_URL" Target="RUNDECK_GRAILS_URL" Default="http://rundeck.gh4.pw:4440" Mode="" Description="Controls the base URL the app will use for links, redirects, etc. This is the URL users will use to access the site." Type="Variable" Display="always" Required="false" Mask="false">http://rundeck.gh4.pw:4440</Config>
+  <Requires/>
+  <Config Name="RUNDECK_GRAILS_URL" Target="RUNDECK_GRAILS_URL" Default="https://rundeck.gh4.red/" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">https://rundeck.gh4.red/</Config>
+  <Config Name="RUNDECK_SERVER_FORWARDED" Target="RUNDECK_SERVER_FORWARDED" Default="true" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Preferences File" Target="/home/rundeck/etc/preferences.properties" Default="/mnt/user/appdata/rundeck/preferences.properties" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/rundeck/preferences.properties</Config>
+  <Config Name="RUNDECK_MAIL_SMTP_HOST" Target="RUNDECK_MAIL_SMTP_HOST" Default="smtp.gmail.com" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">smtp.gmail.com</Config>
+  <Config Name="RUNDECK_MAIL_SMTP_PORT" Target="RUNDECK_MAIL_SMTP_PORT" Default="587" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">587</Config>
+  <Config Name="RUNDECK_MAIL_SMTP_USERNAME" Target="RUNDECK_MAIL_SMTP_USERNAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="RUNDECK_MAIL_SMTP_PASSWORD" Target="RUNDECK_MAIL_SMTP_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <TailscaleStateDir/>
 </Container>

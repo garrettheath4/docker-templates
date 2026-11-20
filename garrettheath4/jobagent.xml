@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>jobagent</Name>
+  <Repository>jobagent:latest</Repository>
+  <Registry/>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/hareware-labs/job-applicator/</Project>
+  <ReadMe>https://github.com/hareware-labs/job-applicator/blob/main/README.md</ReadMe>
+  <Overview>jobagent - an autonomous, employer-first job discovery agent for&#xD;
+software engineers seeking roles in the Netherlands with employer&#xD;
+sponsorship. It builds its candidate list directly from employers' own&#xD;
+career systems (Greenhouse, Lever, Ashby, Workday, SmartRecruiters,&#xD;
+etc.) - never from job aggregators - and checks every vacancy against&#xD;
+the official IND public register of recognised sponsors.&#xD;
+&#xD;
+Features:&#xD;
+- Deterministic core: IND register indexing, ATS crawling, dedup,&#xD;
+  sponsorship classification and scoring - no AI required to build&#xD;
+  the list.&#xD;
+- Optional AI (Claude/OpenAI/Gemini) for cover-letter drafting and&#xD;
+  re-ranking, behind configurable budgets and caching.&#xD;
+- Evidence first: each vacancy carries a sponsorship category (1-5),&#xD;
+  quoted evidence sentences, salary-threshold calculations and source&#xD;
+  URLs.&#xD;
+- No caps: every job above the relevance threshold is reported.&#xD;
+- Safe application workflow: assisted mode by default; automatic&#xD;
+  submission requires explicit recorded authorisation and has a kill&#xD;
+  switch.&#xD;
+- Respectful crawler: honours robots.txt and per-domain politeness&#xD;
+  delays.&#xD;
+&#xD;
+Setup:&#xD;
+- Mount a host directory at /data (e.g. /mnt/user/appdata/jobagent).&#xD;
+  All state - config, SQLite database, reports - lives there; it must&#xD;
+  be owned by UID 1000 (chown -R 1000:1000).&#xD;
+- Run "jobagent init" once (with the same volume mounted) to create&#xD;
+  config and fetch IND data before the first scheduled run.&#xD;
+- Scheduled runs fire daily via the built-in scheduler; override the&#xD;
+  command for one-shot runs (e.g. "jobagent run --catch-up").&#xD;
+- Publish port 8765 and run "jobagent dashboard --host 0.0.0.0" to use&#xD;
+  the web dashboard; prefer putting it behind a reverse proxy rather&#xD;
+  than exposing it directly.</Overview>
+  <Category/>
+  <WebUI>https://jobagent.gh4.red/</WebUI>
+  <TemplateURL/>
+  <Icon>https://www.freeiconspng.com/uploads/recruitment-icon-30.png</Icon>
+  <ExtraParams/>
+  <PostArgs>dashboard --host 0.0.0.0</PostArgs>
+  <CPUset/>
+  <DateInstalled>1795130427</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="jobagent" Target="/data" Default="/mnt/user/appdata/job-applicator/jobagent" Mode="rw" Description="Stores the jobagent user data that would normally be stored in `~/.jobagent/`" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/job-applicator/jobagent</Config>
+  <Config Name="WebUI Port" Target="8765" Default="8765" Mode="tcp" Description="The port to access the dashboard UI." Type="Port" Display="always" Required="false" Mask="false">8765</Config>
+  <TailscaleStateDir/>
+</Container>

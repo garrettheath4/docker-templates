@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Collabora-CODE</Name>
+  <Repository>collabora/code</Repository>
+  <Registry>https://hub.docker.com/r/collabora/code/</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support/>
+  <Project>https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html</Project>
+  <ReadMe/>
+  <Overview>Updated to not use domain enviroment variable&#xD;
+Collabora/Code Online Development Edition - an awesome, Online Office suite image suitable for home use. You can use Collabora/Code for your Nextcloud an edit your Office Documents Online!</Overview>
+  <Category>Cloud:</Category>
+  <WebUI>https://office.gh4.red/browser/dist/admin/admin.html</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Collabora/Collabora-CODE.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/chvb/docker-templates/master/chvb/img/collabora.png</Icon>
+  <ExtraParams>--restart always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1795137828</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Host Port 1" Target="9980" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9980</Config>
+  <Config Name="Username" Target="username" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">admin</Config>
+  <Config Name="Password" Target="password" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Spelling dictionaries" Target="dictionaries" Default="de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru" Mode="" Description="By default only limited set of spelling dictionaries and thesauri are configured for CODE, mainly for performance reasons." Type="Variable" Display="always" Required="false" Mask="false">de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru</Config>
+  <Config Name="Traefik Enable" Target="traefik.enable" Default="false" Mode="" Description="Disables Traefik auto-discovery since NextCloud expects non-standard traffic (HTTPS on port 444 instead of HTTP on port 80)." Type="Label" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="coolwsd.xml Config File" Target="/etc/coolwsd/" Default="/mnt/user/appdata/Collabora-CODE/" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Collabora-CODE/</Config>
+  <Config Name="Alias Group 1 URL" Target="aliasgroup1" Default="https://nextcloud.gh4.red:443" Mode="" Description="The URL of the NextCloud server to allow WOPI connections from." Type="Variable" Display="always" Required="false" Mask="false">https://nextcloud.gh4.red</Config>
+  <Config Name="Server Full Domain" Target="server_name" Default="office.gh4.red" Mode="" Description="The full domain of this Collabora app/container." Type="Variable" Display="always" Required="false" Mask="false">office.gh4.red</Config>
+  <TailscaleStateDir/>
+</Container>

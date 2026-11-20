@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>home-assistant</Name>
+  <Repository>homeassistant/home-assistant</Repository>
+  <Registry>https://registry.hub.docker.com/r/homeassistant/home-assistant/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.4.6</MyIP>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://home-assistant.io/help/</Support>
+  <Project>https://home-assistant.io</Project>
+  <Overview>Home Assistant Core is the core of the Home Assistant home automation platform. It focuses on local control and privacy. Track and control all devices at home and automate control.</Overview>
+  <Category>HomeAutomation:</Category>
+  <WebUI>http://hass.gh4.pw/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/balloob/unraid-docker-templates/master/balloob/home-assistant.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/balloob/unraid-docker-templates/master/balloob/home-assistant-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1631296591</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Home Assistant Core is the core of the Home Assistant home automation platform. It focuses on local control and privacy. Track and control all devices at home and automate control.</Description>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8123</HostPort>
+        <ContainerPort>8123</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/home-assistant</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels>
+    <Label>
+      <Value>traefik</Value>
+      <Name>traefik.docker.network</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.http.routers.home-assistant.tls</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>8123</Value>
+      <Name>traefik.http.services.home-assistant.loadbalancer.server.port</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>Host(`ha.gh4.pw`, `hasss.gh4.pw`, `hass.gh4.pw`, `hass.garrettheath4.com`)</Value>
+      <Name>traefik.http.routers.home-assistant.rule</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+  <Config Name="Config Directory" Target="/config" Default="/mnt/cache/app_config/home-assistant" Mode="rw" Description="This path is where Home Assistant will store it's configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/home-assistant</Config>
+  <Config Name="Web UI" Target="8123" Default="8123" Mode="tcp" Description="Port where the Home Assistant web UI is hosted" Type="Port" Display="always" Required="false" Mask="false">8123</Config>
+  <Config Name="ConBee II" Target="" Default="/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2421021-if00" Mode="" Description="The device location in the unRAID server's filesystem. Should be at `/dev/bus/usb/[bus#]/[device#]`. Use `lsusb` to find the USB bus # and device #." Type="Device" Display="always" Required="false" Mask="false">/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2421021-if00</Config>
+  <Config Name="Label traefik.docker.network" Target="traefik.docker.network" Default="traefik" Mode="" Description="traefik.docker.network=traefik" Type="Label" Display="advanced-hide" Required="false" Mask="false">traefik</Config>
+  <Config Name="Label traefik.http.routers.home-assistant.tls" Target="traefik.http.routers.home-assistant.tls" Default="true" Mode="" Description="traefik.http.routers.blog.tls=true" Type="Label" Display="advanced-hide" Required="false" Mask="false">true</Config>
+  <Config Name="Label traefik.http.services.home-assistant.loadbalancer.server.port" Target="traefik.http.services.home-assistant.loadbalancer.server.port" Default="8123" Mode="" Description="traefik.http.services.my-service.loadbalancer.server.port=12345" Type="Label" Display="advanced-hide" Required="false" Mask="false">8123</Config>
+  <Config Name="Label traefik.enable=true" Target="traefik.enable" Default="true" Mode="" Description="traefik.enable=true" Type="Label" Display="advanced-hide" Required="false" Mask="false">true</Config>
+  <Config Name="Label traefik.http.routers.home-assistant.rule" Target="traefik.http.routers.home-assistant.rule" Default="" Mode="" Description="traefik.http.routers.my-container.rule=Host(`mydomain.com`)" Type="Label" Display="advanced-hide" Required="false" Mask="false">Host(`ha.gh4.pw`, `hasss.gh4.pw`, `hass.gh4.pw`, `hass.garrettheath4.com`)</Config>
+</Container>

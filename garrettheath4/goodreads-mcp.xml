@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>goodreads-mcp</Name>
+  <Repository>goodreads-mcp-server</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/ns-mkusper/goodreads-mcp-server</Project>
+  <ReadMe>https://github.com/ns-mkusper/goodreads-mcp-server/blob/main/README.md</ReadMe>
+  <Overview># Goodreads MCP Server&#xD;
+&#xD;
+Small MCP server for personal Goodreads reading history.&#xD;
+&#xD;
+It keeps a local SQLite store of:&#xD;
+&#xD;
+- books&#xD;
+- shelves&#xD;
+- ratings&#xD;
+- reviews&#xD;
+- read dates&#xD;
+- sync metadata&#xD;
+&#xD;
+The current live adapter uses Goodreads shelf RSS feeds backed by a local&#xD;
+normalized store. It can run against a public Goodreads profile or sign in with&#xD;
+Goodreads credentials and discover the profile identity automatically. A&#xD;
+Goodreads CSV export can be used as a bootstrap or repair input, but it is not&#xD;
+the primary path.&#xD;
+&#xD;
+## Tools&#xD;
+&#xD;
+- `get_sync_status`&#xD;
+- `sync_public_profile`&#xD;
+- `list_recent_books`&#xD;
+- `list_recent_liked_books`&#xD;
+- `list_books_by_shelf`&#xD;
+- `search_books`&#xD;
+- `summarize_reading_taste`&#xD;
+&#xD;
+## Environment&#xD;
+&#xD;
+Set either a public Goodreads identity:&#xD;
+&#xD;
+```bash&#xD;
+GOODREADS_PROFILE_URL='https://www.goodreads.com/user/show/12345678-your-name'&#xD;
+GOODREADS_USER_ID='12345678'&#xD;
+```&#xD;
+&#xD;
+Or Goodreads credentials:&#xD;
+&#xD;
+```bash&#xD;
+GOODREADS_USER='you@example.com'&#xD;
+GOODREADS_PASS='app-password-or-goodreads-password'&#xD;
+```&#xD;
+&#xD;
+Optional settings:&#xD;
+&#xD;
+```bash&#xD;
+GOODREADS_SHELVES='read,currently-reading,to-read'&#xD;
+GOODREADS_AUTO_REFRESH_MINUTES='0'&#xD;
+GOODREADS_SYNC_PAGE_LIMIT='10'&#xD;
+GOODREADS_PER_PAGE='100'&#xD;
+GOODREADS_HTTP_TIMEOUT_SECONDS='20'&#xD;
+GOODREADS_USER_AGENT='openteams-goodreads-mcp/1.0'&#xD;
+GOODREADS_BOOTSTRAP_CSV_PATH='/imports/goodreads_export.csv'&#xD;
+GOODREADS_DATA_DIR='/data'&#xD;
+FASTMCP_HOST='0.0.0.0'&#xD;
+FASTMCP_PORT='8777'&#xD;
+FASTMCP_LOG_LEVEL='INFO'&#xD;
+```&#xD;
+&#xD;
+`GOODREADS_AUTO_REFRESH_MINUTES=0` means the server refreshes on every query.&#xD;
+If refresh fails after a successful sync, it keeps serving the last cached&#xD;
+snapshot and records the sync error in status.&#xD;
+&#xD;
+## Run locally&#xD;
+&#xD;
+```bash&#xD;
+python3 -m venv .venv&#xD;
+. .venv/bin/activate&#xD;
+pip install -r requirements.txt&#xD;
+python server.py&#xD;
+```&#xD;
+&#xD;
+The MCP endpoint is:&#xD;
+&#xD;
+```text&#xD;
+http://127.0.0.1:8777/mcp&#xD;
+```&#xD;
+&#xD;
+## Docker&#xD;
+&#xD;
+```bash&#xD;
+docker build -t goodreads-mcp-server .&#xD;
+docker run --rm -p 8777:8777 &#xD;
+  -e GOODREADS_USER='you@example.com' &#xD;
+  -e GOODREADS_PASS='secret' &#xD;
+  -v "$PWD/data:/data" &#xD;
+  goodreads-mcp-server&#xD;
+```&#xD;
+&#xD;
+## Tests&#xD;
+&#xD;
+```bash&#xD;
+python3 -m unittest discover -s tests -t .&#xD;
+```</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/goodreads.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1780368907</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Data" Target="/app/data" Default="/mnt/user/appdata/goodreads-mcp" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/goodreads-mcp</Config>
+  <Config Name="Web Port" Target="8777" Default="8777" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8777</Config>
+  <Config Name="Goodreads Username" Target="GOODREADS_USER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Goodreads Password" Target="GOODREADS_PASS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Goodreads Profile URL" Target="GOODREADS_PROFILE_URL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">https://www.goodreads.com/user/show/12855893-garrett</Config>
+  <Config Name="Goodreads User ID" Target="GOODREADS_USER_ID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">12855893</Config>
+  <TailscaleStateDir/>
+</Container>

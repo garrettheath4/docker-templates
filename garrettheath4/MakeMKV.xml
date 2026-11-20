@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>MakeMKV</Name>
+  <Repository>jlesage/makemkv</Repository>
+  <Registry>https://hub.docker.com/r/jlesage/makemkv/</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://forums.unraid.net/topic/58352-support-makemkv/</Support>
+  <Project>https://www.makemkv.com</Project>
+  <ReadMe/>
+  <Overview>&#xD;
+MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere. MakeMKV is a format converter, otherwise called "transcoder". It converts the video clips from proprietary (and usually encrypted) disc into a set of MKV files, preserving most information but not changing it in any way. The MKV format can store multiple video/audio tracks with all meta-information and preserve chapters.&#xD;
+&#xD;
+The GUI of the application is accessed through a modern web browser (no installation or configuration needed on the client side) or via any VNC client.&#xD;
+&#xD;
+Also, being based on Alpine Linux, size of this container is very small.&#xD;
+&#xD;
+A fully automated mode is also available: insert a DVD or Blu-ray disc into an optical drive and let MakeMKV rips it without any user interaction.&#xD;
+&#xD;
+For a complete documentation of this container, see https://github.com/jlesage/docker-makemkv#readme&#xD;
+&#xD;
+**NOTE**: For the container to have access to your optical drive(s), you need to add them to your container configuration. This is done by adding a new "Device". An optical drive is represented by two Linux device files: "/dev/srX" and "/dev/sgY". For optimal performance, the container needs both of them. To determine the right devices to use, start the container and look at its log.&#xD;
+  </Overview>
+  <Category>MediaApp:Video</Category>
+  <WebUI>https://makemkv.gh4.red</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/makemkv.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/makemkv-icon.png</Icon>
+  <ExtraParams>--runtime=nvidia --device /dev/sr0 --device /dev/sg0 --device /dev/sg1 --device /dev/sg2 --device /dev/sg3 --device /dev/sg4 --device /dev/sg5 --device /dev/sg6 --device /dev/sg7 --device /dev/sg8</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1795139638</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Output Directory" Target="/output" Default="" Mode="rw" Description="This is the default output folder for converted videos. Also used by the automatic disc ripper." Type="Path" Display="always-hide" Required="True" Mask="False">/mnt/user/Rips-2-Decrypted/</Config>
+  <Config Name="License Key" Target="MAKEMKV_KEY" Default="BETA" Mode="" Description="MakeMKV registration key to use. The key is written to the configuration file during container startup. When set to " Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Automatic Disc Ripper: Enabled" Target="AUTO_DISC_RIPPER" Default="0" Mode="" Description="Set to 1 to enable automatic rippping of DVD/Blu-ray discs." Type="Variable" Display="always" Required="False" Mask="False">0</Config>
+  <Config Name="Automatic Disc Ripper: Eject" Target="AUTO_DISC_RIPPER_EJECT" Default="0" Mode="" Description="Set to 1 to eject disc when ripping is terminated." Type="Variable" Display="always" Required="False" Mask="False">0</Config>
+  <Config Name="Automatic Disc Ripper: Parallel" Target="AUTO_DISC_RIPPER_PARALLEL_RIP" Default="0" Mode="" Description="When set to 1, discs from all available optical drives are ripped in parallel. Else, each disc from optical drives is ripped one at time." Type="Variable" Display="always" Required="False" Mask="False">0</Config>
+  <Config Name="Automatic Disc Ripper: Blu-ray Rip Mode" Target="AUTO_DISC_RIPPER_BD_MODE" Default="mkv" Mode="" Description="Rip mode of Blu-ray discs. " Type="Variable" Display="always" Required="False" Mask="False">mkv</Config>
+  <Config Name="Automatic Disc Ripper: Force Unique Output Directory" Target="AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR" Default="0" Mode="" Description="When set to 0, files are written to " Type="Variable" Display="always" Required="False" Mask="False">0</Config>
+  <Config Name="Storage" Target="/storage" Default="/mnt/user" Mode="ro" Description="This location contains files from your host that need to be accessible to the application." Type="Path" Display="always-hide" Required="True" Mask="False">/mnt/user/</Config>
+  <Config Name="Automatic Disc Ripper: Disable Progress in GUI" Target="AUTO_DISC_RIPPER_NO_GUI_PROGRESS" Default="0" Mode="" Description="When set to 1, progress of discs ripped by the automatic disc ripper is not shown in the MakeMKV GUI." Type="Variable" Display="always" Required="False" Mask="False">0</Config>
+  <Config Name="Nvidia Visible Devices" Target="NVIDIA_VISIBLE_DEVICES" Default="GPU-339c294d-2921-7f93-42df-c79b0b9b020b" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">GPU-339c294d-2921-7f93-42df-c79b0b9b020b</Config>
+  <Config Name="Nvidia Driver Capabilities" Target="NVIDIA_DRIVER_CAPABILITIES" Default="all" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
+  <Config Name="Config Directory" Target="/config" Default="/mnt/user/appdata/makemkv" Mode="rw" Description="This is where the application stores its configuration, states, log and any files needing persistency." Type="Path" Display="advanced-hide" Required="True" Mask="False">/mnt/user/appdata/MakeMKV</Config>
+  <Config Name="User ID" Target="USER_ID" Default="99" Mode="" Description="ID of the user the application runs as." Type="Variable" Display="advanced-hide" Required="True" Mask="False">99</Config>
+  <Config Name="Group ID" Target="GROUP_ID" Default="100" Mode="" Description="ID of the group the application runs as." Type="Variable" Display="advanced-hide" Required="True" Mask="False">100</Config>
+  <Config Name="Umask" Target="UMASK" Default="000" Mode="" Description="Mask that controls how file permissions are set for newly created files. The value of the mask is in octal notation." Type="Variable" Display="advanced" Required="False" Mask="False">000</Config>
+  <Config Name="Niceness (priority)" Target="APP_NICENESS" Default="0" Mode="" Description="Priority at which the application should run. A niceness value of -20 is the highest priority and 19 is the lowest priority. NOTE: Setting a negative value requires additional permissions. Thus, " Type="Variable" Display="advanced" Required="False" Mask="False">10</Config>
+  <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1920" Mode="" Description="Width (in pixels) of the application's window." Type="Variable" Display="advanced" Required="False" Mask="False">1280</Config>
+  <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="1080" Mode="" Description="Height (in pixels) of the application's window." Type="Variable" Display="advanced" Required="False" Mask="False">768</Config>
+  <Config Name="Secure Connection" Target="SECURE_CONNECTION" Default="0" Mode="" Description="Whether or not an encrypted connection should be used to access the application's GUI. Set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Extra x11vnc Options" Target="X11VNC_EXTRA_OPTS" Default="" Mode="" Description="Extra options to pass to the x11vnc server running in the Docker container.Warning: For advanced users. Do not use unless you know what you are doing." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Automatic Disc Ripper: Interval" Target="AUTO_DISC_RIPPER_INTERVAL" Default="5" Mode="" Description="Interval, in seconds, the automatic disc ripper checks for the presence of a DVD/Blu-ray discs." Type="Variable" Display="advanced" Required="False" Mask="False">10</Config>
+  <Config Name="Automatic Disc Ripper: Minimum Title Length" Target="AUTO_DISC_RIPPER_MIN_TITLE_LENGTH" Default="" Mode="" Description="Titles with a length less than this value are ignored. Length is in seconds. By default, no value is set, meaning that value from MakeMKV's configuration file is taken." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="WEB Port for GUI (Bridge Network Type)" Target="5800" Default="7806" Mode="tcp" Description="Port to access the application's GUI via the web interface.  NOTE: This setting is relevant only when the Network Type is set to " Type="Port" Display="advanced-hide" Required="True" Mask="False">7806</Config>
+  <Config Name="VNC Port for GUI (Bridge Network Type)" Target="5900" Default="7906" Mode="tcp" Description="Port to access the application's GUI via VNC protocol. Optional if no VNC client is used.  NOTE: This setting is relevant only when the Network Type is set to " Type="Port" Display="advanced-hide" Required="False" Mask="False">7906</Config>
+  <Config Name="Automatic Disc Ripper: Custom MakeMKV Profile" Target="AUTO_DISC_RIPPER_MAKEMKV_PROFILE" Default="" Mode="" Description="Filename of the custom MakeMKV profile the automatic disc ripper should use. The profile is expected to be found under the /config folder of the container, unless an absolute path is specified." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="Dark Mode" Target="DARK_MODE" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">1</Config>
+  <Config Name="Secure Connection VNC Method" Target="SECURE_CONNECTION_VNC_METHOD" Default="SSL" Mode="" Description="Method used to perform the secure VNC connection. Possible values are " Type="Variable" Display="advanced" Required="False" Mask="False">SSL</Config>
+  <Config Name="Secure Connection Certificate Check Interval" Target="SECURE_CONNECTION_CERTS_CHECK_INTERVAL" Default="60" Mode="" Description="Interval, in seconds, at which the system verifies if web or VNC certificates have changed. When a change is detected, the affected services are automatically restarted. A value of " Type="Variable" Display="advanced" Required="False" Mask="False">60</Config>
+  <Config Name="Web Listening Port (Non-Bridge Network Type)" Target="WEB_LISTENING_PORT" Default="5800" Mode="" Description="Port used by the web server to serve the UI of the application. This port is used internally by the container and it is usually not required to be changed. NOTE: This setting is relevant only when the Network Type is set to something else than Bridge." Type="Variable" Display="advanced" Required="False" Mask="False">5800</Config>
+  <Config Name="VNC Listening Port (Non-Bridge Network Type)" Target="VNC_LISTENING_PORT" Default="5900" Mode="" Description="Port used by the VNC server to serve the UI of the application. This port is used internally by the container and it is usually not required to be changed. NOTE: This setting is relevant only when the Network Type is set to something else than Bridge." Type="Variable" Display="advanced" Required="False" Mask="False">5900</Config>
+  <Config Name="MakeMKV GUI State" Target="MAKEMKV_GUI" Default="1" Mode="" Description="Setting this to 1 enables the MakeMKV GUI, 0 disables it." Type="Variable" Display="advanced" Required="False" Mask="False">1</Config>
+  <Config Name="Web Audio" Target="WEB_AUDIO" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Web Authentication" Target="WEB_AUTHENTICATION" Default="0" Mode="" Description="When set to " Type="Variable" Display="advanced" Required="False" Mask="False">0</Config>
+  <Config Name="Web Authentication Username" Target="WEB_AUTHENTICATION_USERNAME" Default="" Mode="" Description="Optional username to configure for the web authentication. This is a quick and easy way to configure credentials for a single user. To configure credentials in a more secure way, or to add more users, see the documentation." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <Config Name="Web Authentication Password" Target="WEB_AUTHENTICATION_PASSWORD" Default="" Mode="" Description="Optional password to configure for the web authentication. This is a quick and easy way to configure credentials for a single user. To configure credentials in a more secure way, or to add more users, see the documentation." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Web Authentication Token Validity Time" Target="WEB_AUTHENTICATION_TOKEN_VALIDITY_TIME" Default="24" Mode="" Description="The lifetime of a token, in hours. A token is attributed to the user after a successful login. As long as the token is valid, user can access the application's GUI without having to log in again. Once the token expires, the login page is prompted again." Type="Variable" Display="advanced" Required="False" Mask="False"/>
+  <TailscaleStateDir/>
+</Container>

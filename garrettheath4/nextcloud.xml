@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>nextcloud</Name>
+  <Repository>lscr.io/linuxserver/nextcloud</Repository>
+  <Registry>https://github.com/orgs/linuxserver/packages/container/package/nextcloud</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/linuxserver/docker-nextcloud/issues/new/choose</Support>
+  <Project>https://nextcloud.com/</Project>
+  <ReadMe/>
+  <Overview>Nextcloud(https://nextcloud.com/) gives you access to all your files wherever you are.&#xD;
+&#xD;
+Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.</Overview>
+  <Category>Cloud: Tools:Utilities</Category>
+  <WebUI>https://nextcloud.gh4.red</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/linuxserver/templates/main/unraid/nextcloud.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs>&amp;amp;&amp;amp; docker network connect redis nextcloud &amp;amp;&amp;amp; docker network connect mariadb nextcloud</PostArgs>
+  <CPUset/>
+  <DateInstalled>1779363164</DateInstalled>
+  <DonateText>Even the smallest donation from you will help us keep everything up and running so we can continue to provide our great services.</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <Requires/>
+  <Config Name="WebUI" Target="443" Default="443" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false">444</Config>
+  <Config Name="Path: /data" Target="/data" Default="" Mode="rw" Description="Your personal data." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/NextCloud/</Config>
+  <Config Name="Traefik Enable" Target="traefik.enable" Default="false" Mode="" Description="Disables Traefik auto-discovery since NextCloud expects non-standard traffic (HTTPS on port 444 instead of HTTP on port 80)." Type="Label" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="Docker Mods" Target="DOCKER_MODS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">linuxserver/mods:nextcloud-notify-push</Config>
+  <Config Name="Push Rule" Target="traefik.http.routers.nextcloud-push.rule" Default="Host(`nextcloud.gh4.red`) &amp;amp;&amp;amp; PathPrefix(`/push/`)" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">Host(`nextcloud.gh4.red`) &amp;&amp; PathPrefix(`/push/`)</Config>
+  <Config Name="Push Entrypoints" Target="traefik.http.routers.nextcloud-push.entrypoints" Default="websecure" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">websecure</Config>
+  <Config Name="Push TLS" Target="traefik.http.routers.nextcloud-push.tls" Default="true" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Push Cert Resolver" Target="traefik.http.routers.nextcloud-push.tls.certresolver" Default="letsencrypt-dns" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">letsencrypt-dns</Config>
+  <Config Name="Push Service" Target="traefik.http.routers.nextcloud-push.service" Default="nextcloud-push-svc" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">nextcloud-push-svc</Config>
+  <Config Name="Push Port" Target="traefik.http.services.nextcloud-push-svc.loadbalancer.server.port" Default="7867" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">7867</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/nextcloud" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/nextcloud</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="UMASK" Target="UMASK" Default="022" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+  <TailscaleStateDir/>
+</Container>

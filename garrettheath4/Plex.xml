@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Plex</Name>
+  <Repository>plexinc/pms-docker</Repository>
+  <Registry>https://hub.docker.com/r/plexinc/pms-docker/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.plex.tv/categories/docker</Support>
+  <Project>https://plex.tv/</Project>
+  <ReadMe/>
+  <Overview>Plex Media Server&#xD;
+ &#xD;
+    Enjoy your media on all your devices.&#xD;
+    All your movie, TV Show, music, and photo collections at your fingertips, anywhere you go on all the devices you love.</Overview>
+  <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
+  <WebUI>http://cosmia.gh4.red:[PORT:32400]/web</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/plexinc/pms-docker/master/plex-unRAID.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/plexinc/pms-docker/master/img/plex-server.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1795139781</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Host Path 2" Target="/transcode" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/temp/</Config>
+  <Config Name="Host Path 3" Target="/data/PlexMedia" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/PlexMedia/</Config>
+  <Config Name="Key 1" Target="PLEX_CLAIM" Default="Insert Token from https://plex.tv/claim" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Key 2" Target="PLEX_UID" Default="99" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="Key 3" Target="PLEX_GID" Default="100" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="Key 4" Target="VERSION" Default="latest" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">latest</Config>
+  <Config Name="Traefik Enable" Target="traefik.enable" Default="false" Mode="" Description="Disables Traefik auto-discovery since Plex uses the host network and not a Docker network." Type="Label" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/PlexMediaServer" Mode="rw" Description="" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/PlexMediaServer</Config>
+  <TailscaleStateDir/>
+</Container>

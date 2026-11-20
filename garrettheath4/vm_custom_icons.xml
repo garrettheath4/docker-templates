@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>vm_custom_icons</Name>
+  <Repository>spaceinvaderone/vm_custom_icons</Repository>
+  <Registry>https://github.com/SpaceinvaderOne/unraid_vm_icons</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/SpaceinvaderOne/unraid_vm_icons</Support>
+  <Project>https://github.com/SpaceinvaderOne/unraid_vm_icons</Project>
+  <Overview>Custom VM Icon Manager v2 gives you a standalone web GUI to browse, preview and choose from roughly 90 VM icons, organised into macOS, Windows, Linux, FreeBSD and Other sections, plus a Custom upload area so you can add your own icons as well. It installs directly into Unraid’s VM Manager. Simply set the container to auto-start and your selected icons remain persistent and reload on every reboot.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://cosmia.gh4.red:[PORT:3133]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/vm_icon_downloader.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/SpaceinvaderOne/unraid_vm_icons/master/dockericon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1760323939</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI port" Target="3133" Default="3133" Mode="tcp" Description="WebUI port for the container" Type="Port" Display="always" Required="true" Mask="false">3133</Config>
+  <Config Name="Container appdata path." Target="/config" Default="/mnt/user/appdata/vm_custom_icons" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/vm_custom_icons</Config>
+  <Config Name="SUCESS_TUNE" Target="" Default="no|yes" Mode="" Description="Enable a notification tune when icons are loaded into the VM manager. (For this feature to work, your server must have a beep speaker attached. These are very cheap if you want one and available for a couple of $ each)" Type="Variable" Display="always" Required="false" Mask="false">no</Config>
+  <Config Name="UNRAID_IP" Target="UNRAID_IP" Default="" Mode="" Description="Unraid IP address (not currently used) will be used in future updates along with the Unraid API." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Unraid VM icons path" Target="/unraid_vm_icons" Default="/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images" Mode="rw" Description="Path on the Unraid server to where the VM icons are stored. Do not change this path." Type="Path" Display="advanced-hide" Required="true" Mask="false">/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images</Config>
+  <Config Name="beep speaker" Target="/dev/tty0" Default="" Mode="" Description="Used if you have a beep speaker in your server and you want to have an audible notification when new icons are loaded." Type="Device" Display="advanced" Required="false" Mask="false">/dev/tty0</Config>
+  <Config Name="UNRAID_API" Target="UNRAID_API" Default="" Mode="" Description="UNRAID API KEY - not currently used for future features." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="VERSION" Target="version" Default="2.0" Mode="" Description="Docker container version, do not change this value." Type="Variable" Display="advanced-hide" Required="true" Mask="false">2.0</Config>
+  <TailscaleStateDir/>
+</Container>

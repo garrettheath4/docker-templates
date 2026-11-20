@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>duckdns</Name>
+  <Repository>linuxserver/duckdns</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/duckdns/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/52172-support-linuxserverio-duckdns/</Support>
+  <Project>https://www.duckdns.org/</Project>
+  <Overview>Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.&#xD;
+&#xD;
+First, go to duckdns site, register your subdomain and retrieve your token&#xD;
+Then run the docker create command above with your subdomain(s) and token&#xD;
+It will update your IP with the DuckDNS service every 5 minutes&#xD;
+&#xD;
+</Overview>
+  <Category>Network:DNS Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/duckdns.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1766092752</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="SUBDOMAINS" Target="SUBDOMAINS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">gh4home</Config>
+  <Config Name="TOKEN" Target="TOKEN" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Traefik Enable" Target="traefik.enable" Default="false" Mode="" Description="" Type="Label" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <TailscaleStateDir/>
+</Container>

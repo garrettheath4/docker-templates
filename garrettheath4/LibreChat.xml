@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>LibreChat</Name>
+  <Repository>ghcr.io/danny-avila/librechat:latest</Repository>
+  <Registry>https://github.com/danny-avila/LibreChat</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/151417-support-pureelectricity-librechat/</Support>
+  <Project>https://github.com/danny-avila/LibreChat</Project>
+  <ReadMe/>
+  <Overview>LibreChat: Enhanced ChatGPT Clone. Features: Agents, Anthropic, AWS, OpenAI, Azure, Gemini, AI model switching, message search, langchain, DALL-E-3, Multi-User Auth, and more.&#xD;
+&#xD;
+PREREQUISITES:&#xD;
+1. You must have a MongoDB container running (e.g., the official mongo docker).&#xD;
+2. You must generate random hex strings for the CREDS_KEY, CREDS_IV, and JWT_SECRET below, or logins will fail.&#xD;
+&#xD;
+CONFIGURATION:&#xD;
+- This template uses Environment Variables for config. &#xD;
+- The 'librechat.yaml' file is optional and not mapped by default to prevent boot errors. If you need advanced configuration (custom endpoints), create the file on your server first, then add a Host Path mapping manually: /mnt/user/appdata/librechat/librechat.yaml -&amp;gt; /app/librechat.yaml</Overview>
+  <Category>AI: Tools:Utilities Productivity:</Category>
+  <WebUI>https://librechat.gh4.red/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ds-sebastian/unraid-templates/main/librechat/librechat.xml</TemplateURL>
+  <Icon>https://www.librechat.ai/librechat.png</Icon>
+  <ExtraParams/>
+  <PostArgs>&amp;amp;&amp;amp; docker network connect searxng LibreChat &amp;amp;&amp;amp; docker network connect meilisearch LibreChat &amp;amp;&amp;amp; docker network connect mongodb LibreChat</PostArgs>
+  <CPUset/>
+  <DateInstalled>1795139495</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI Port" Target="3080" Default="3080" Mode="tcp" Description="The port to access the LibreChat interface." Type="Port" Display="always" Required="true" Mask="false">3080</Config>
+  <Config Name="Host Binding" Target="HOST" Default="0.0.0.0" Mode="" Description="Required for Docker networking." Type="Variable" Display="always" Required="true" Mask="false">0.0.0.0</Config>
+  <Config Name="Client Domain" Target="DOMAIN_CLIENT" Default="http://[IP]:[PORT:3080]" Mode="" Description="The URL used to access the app. MUST include http:// or https://." Type="Variable" Display="always" Required="true" Mask="false">http://librechat.gh4.red</Config>
+  <Config Name="Server Domain" Target="DOMAIN_SERVER" Default="http://[IP]:[PORT:3080]" Mode="" Description="Usually the same as Client Domain." Type="Variable" Display="always" Required="true" Mask="false">http://librechat.gh4.red</Config>
+  <Config Name="MongoDB URI" Target="MONGO_URI" Default="" Mode="" Description="Required. Format: mongodb://[IP]:27017/LibreChat" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Crypto Key" Target="CREDS_KEY" Default="" Mode="" Description="Required. 64-character hex string. Run 'openssl rand -hex 32' to generate." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Crypto IV" Target="CREDS_IV" Default="" Mode="" Description="Required. 32-character hex string. Run 'openssl rand -hex 16' to generate." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="JWT Secret" Target="JWT_SECRET" Default="" Mode="" Description="Required. Long random string for signing tokens." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="JWT Refresh Secret" Target="JWT_REFRESH_SECRET" Default="" Mode="" Description="Required. Long random string for refresh tokens." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="OpenAI API Key" Target="OPENAI_API_KEY" Default="user_provided" Mode="" Description="Optional. If set to 'user_provided', users can enter their own key in the UI." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Image Storage" Target="/app/client/public/images" Default="/mnt/user/appdata/librechat/images" Mode="rw" Description="Persist uploaded images and avatars." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/librechat/images</Config>
+  <Config Name="OpenRouter API Key" Target="OPENROUTER_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Anthropic API Key" Target="ANTHROPIC_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="RAG API URL" Target="RAG_API_URL" Default="http://meilisearch:7700" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">http://meilisearch:7700</Config>
+  <Config Name="API Auth Data" Target="/app/api/data/auth.json" Default="/mnt/user/appdata/librechat/auth.json" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/librechat/auth.json</Config>
+  <Config Name="Vercel API Token" Target="VERCEL_API_TOKEN" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="SendGrid API Key" Target="SENDGRID_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="MCP Key Directory" Target="/app/keys/" Default="/mnt/user/appdata/librechat/keys/" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/librechat/keys/</Config>
+  <Config Name="SearXNG Instance URL" Target="SEARXNG_INSTANCE_URL" Default="http://192.168.4.2:7964/" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">http://searxng:8080/</Config>
+  <Config Name="Firecrawl API Key" Target="FIRECRAWL_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Jina Reranker API Key" Target="JINA_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Grocy API Key" Target="GROCY_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Title Conversations" Target="TITLE_CONVO" Default="true" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="SearXNG API Key" Target="SEARXNG_API_KEY" Default="" Mode="" Description="Should be blank if self-hosted (no auth required)." Type="Variable" Display="advanced-hide" Required="false" Mask="true"/>
+  <Config Name="Jina API URL" Target="JINA_API_URL" Default="https://api.jina.ai/v1/rerank" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">https://api.jina.ai/v1/rerank</Config>
+  <Config Name="LibreChat Configuration File" Target="/app/librechat.yaml" Default="/mnt/user/appdata/librechat/librechat.yaml" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/librechat/librechat.yaml</Config>
+  <Config Name="Logs" Target="/app/logs" Default="/mnt/user/appdata/librechat/logs" Mode="rw" Description="Container logs." Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/librechat/logs</Config>
+  <Config Name="Install MeiliSearch" Target="SEARCH" Default="false" Mode="" Description="Set to 'true' only if you have a separate MeiliSearch container running for chat history search." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="MeiliSearch Host" Target="MEILI_HOST" Default="" Mode="" Description="http://[IP]:7700" Type="Variable" Display="advanced" Required="false" Mask="false">http://meilisearch:7700</Config>
+  <Config Name="MeiliSearch Key" Target="MEILI_MASTER_KEY" Default="" Mode="" Description="The master key from your MeiliSearch container." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="UID" Target="UID" Default="99" Mode="" Description="Unraid Default User ID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="GID" Target="GID" Default="100" Mode="" Description="Unraid Default Group ID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Trakt Client ID" Target="TRAKT_CLIENT_ID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Trakt Client Secret" Target="TRAKT_CLIENT_SECRET" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Firecrawl API URL" Target="FIRECRAWL_API_URL" Default="https://api.firecrawl.dev" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">https://api.firecrawl.dev</Config>
+  <Config Name="Firecrawl API Version" Target="FIRECRAWL_VERSION" Default="v1" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">v1</Config>
+  <TailscaleStateDir/>
+</Container>

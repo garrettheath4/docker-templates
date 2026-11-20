@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Duplicacy</Name>
+  <Repository>saspus/duplicacy-web</Repository>
+  <Registry>https://hub.docker.com/r/saspus/duplicacy-web</Registry>
+  <Network>traefik</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/</Support>
+  <Project>https://duplicacy.com</Project>
+  <ReadMe/>
+  <Overview>Web GUI for Duplicacy. Duplicacy backs up your files to many cloud storages with client-side encryption and the highest level of deduplication&#xD;
+    http://duplicacy.com &#xD;
+&#xD;
+    Note: &#xD;
+&#xD;
+    - It's imporatant to pass hostname (Advanced View &amp;gt; Extra Parameters &amp;gt; --hostname=), as duplicacy license is requested based on hostname and machine-id provided by dbus. &#xD;
+&#xD;
+    - Machine-id will be persisted in the /config directory. &#xD;
+&#xD;
+    - Default hostname set to 'duplicacy-unraid'. &#xD;
+&#xD;
+    - If you want to backup the unRAID FLASH drive then you will have to run Duplicacy as root i.e. USR_ID=0 and GRP_ID=0 &#xD;
+&#xD;
+    - /config -- is where configuration data will be stored. Should be backed up. &#xD;
+&#xD;
+    - /logs -- logs will go there. &#xD;
+&#xD;
+    - /cache -- transient and temporary files will be stored here. Can be safely deleted. &#xD;
+&#xD;
+    - Readme: https://hub.docker.com/r/saspus/duplicacy-web</Overview>
+  <Category>Backup: Cloud: Network:Other Productivity: Tools:Utilities spotlight:</Category>
+  <WebUI>https://duplicacy.gh4.red/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/duplicacy.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/duplicacy.png</Icon>
+  <ExtraParams>--hostname=duplicacy-unraid</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1778450636</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port" Target="3875" Default="3875" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3875</Config>
+  <Config Name="User Data" Target="/backuproot" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/Duplicacy" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/Duplicacy</Config>
+  <Config Name="Cache" Target="/cache" Default="/mnt/user/appdata/Duplicacy/cache" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/Duplicacy/cache</Config>
+  <Config Name="Logs" Target="/logs" Default="/mnt/user/appdata/Duplicacy/logs" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/Duplicacy/logs</Config>
+  <Config Name="User ID" Target="USR_ID" Default="99" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="Group ID" Target="GRP_ID" Default="100" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <TailscaleStateDir/>
+</Container>

@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>macinabox</Name>
+  <Repository>spaceinvaderone/macinabox</Repository>
+  <Registry>https://hub.docker.com/r/spaceinvaderone/macinabox</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/</Support>
+  <Project>https://github.com/SpaceinvaderOne/Macinabox</Project>
+  <Overview>Macinabox downloads and installs various macOS versions as a VM on your Unraid server. With this new version, there’s no need for additional helper scripts. It will fully automate the installation of the VM, create the XML file, and select the latest q35 available on your server. All you need to do is choose the macOS version, specify the VM storage location, ISO location, and the container will handle the rest.&#xD;
+## Usage&#xD;
+1. When run will download and install selected version of macOS as a VM if not present.&#xD;
+2. If selected macOS vm is already present it will check the vms xml and fix if necessary&#xD;
+&#xD;
+###   Variables in the container&#xD;
+&#xD;
+**Are you fully compliant with Apple’s EULA?**  &#xD;
+Set this to "Yes" if you are running on Apple hardware. This is the only way to be EULA compliant. If not, leave it as "No" and the container will exit.&#xD;
+&#xD;
+**Operating System Version:**  &#xD;
+Choose the macOS version from the options below:&#xD;
+- Sequoia&#xD;
+- Sonoma&#xD;
+- Ventura  --recommend install&#xD;
+- Monterey&#xD;
+- Big Sur&#xD;
+- Catalina&#xD;
+- Mojave&#xD;
+- High Sierra&#xD;
+&#xD;
+**Custom VM Name:**  &#xD;
+Use this if you want the VM name to differ from the OS version. Leave blank to use the OS name.&#xD;
+&#xD;
+**Vdisk Type:**  &#xD;
+Set the vdisk type to either `raw` or `qcow2`.&#xD;
+&#xD;
+**Vdisk Size:**  &#xD;
+Specify the desired size for the vdisk.&#xD;
+&#xD;
+**Delete and Replace OpenCore:**  &#xD;
+Select "Yes" to delete your VM's OpenCore image and replace it with a fresh one, or "No" to keep the existing one.&#xD;
+&#xD;
+**Default NIC Type:**  &#xD;
+Big Sur and newer default is 'virtio-net' older macos versions it is `e1000-82545em`. Change this to override the default NIC type for macOS versions that support it.&#xD;
+&#xD;
+**VM Images Location:**  &#xD;
+Set this to your VM storage location (e.g., Domains share).&#xD;
+&#xD;
+**ISOs Share Location:**  &#xD;
+This is where macinabox will store the install media &#xD;
+&#xD;
+**Appdata Location:**  &#xD;
+Specify where you want macinabox to store its appdata.&#xD;
+&#xD;
+**Notes**  &#xD;
+- If you want multiple versions of the same macOS, ensure each has a unique name in the Custom VM Name box&#xD;
+&#xD;
+- In Unraid versions below 7, custom elements in the VM template will be removed if vm template edited.. Unraid, in all versions, might also change the NIC bus and slot that macOS expects. Re-run the container to fix the edited vm template after any edits.&#xD;
+&#xD;
+- The container dynamically builds the XML template during VM installation based on settings. It checks the highest QEMU version available and uses it in the template. If you downgrade Unraid, re-run Macinabox to adjust the XML accordingly.&#xD;
+&#xD;
+- You can view container activity via logs or Unraid browser notifications, if enabled.&#xD;
+&#xD;
+- Default icon for macinbox is installed with the VM.This doesnt perist over server reboots. To restore run container again. For all macOS icons (and many other systems) please install  vm_custom_icons  container.</Overview>
+  <Category>Tools:Utilities Other:</Category>
+  <WebUI>http://[IP]:[PORT:7800]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/macinabox.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/Macinabox.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1629901400</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This container can download and install a macOS VM. Either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
+It can autoinstall a  macOS VM. Also it can prepare all files ready for a manual install if you prefer&#xD;
+Tools are also provided to fix the xml when the custom xml has been stripped out of the VM after its been edited by the Unraid VM manager.&#xD;
+ &#xD;
+Usage&#xD;
+  Operating System Version  &#xD;
+                Choose version from below&#xD;
+                                Catalina  (default)&#xD;
+				Big Sur&#xD;
+ 				Mojave&#xD;
+ 				High Sierra&#xD;
+VM Images Location:      Location of your vm share ( default /mnt/user/domains/ )&#xD;
+Install Type 		&#xD;
+                Auto install &#xD;
+ This will download MacOS and install needed files into your VM location.&#xD;
+ &#xD;
+            	Manual- install&#xD;
+ This will download MacOS and put all needed files into correct place ready for easy manual install. &#xD;
+ &#xD;
+ Vdisksize     the size you want your vdisk to be created&#xD;
+ &#xD;
+ Run Mode.     &#xD;
+              macinabox_with_virtmanager   (run macinabox followed by virmanager)&#xD;
+	      virtmanager_only                       (run virmanger only -skips macinabox)&#xD;
+			  &#xD;
+Download Script:&#xD;
+               Method 1      Default&#xD;
+               Method 2      choose method 2 if first fails for some reason&#xD;
+				 &#xD;
+Isos Share Location     This is where macinabox will put install media and Opencore bootloader&#xD;
+                  &#xD;
+Inject fix xml userscript:    &#xD;
+                no     (default)  The fixxml script placed in appdata for you to copy later to userscripts&#xD;
+                yes   Macinabox will try to copy the script and inject directly into userscript plugin location  (userscript plugin must be installed)</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>7800</HostPort>
+        <ContainerPort>5800</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>7900</HostPort>
+        <ContainerPort>5900</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/domains/</HostDir>
+      <ContainerDir>/domains</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/isos/</HostDir>
+      <ContainerDir>/isos</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/system/custom_ovmf/</HostDir>
+      <ContainerDir>/customovmf/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/macinabox</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/macinabox/macinabox</HostDir>
+      <ContainerDir>/config2</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/macinabox/basesystem</HostDir>
+      <ContainerDir>/Macinabox/tools/FetchMacOS/BaseSystem</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/boot/config/plugins/user.scripts/scripts</HostDir>
+      <ContainerDir>/userscripts</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/dev/urandom</HostDir>
+      <ContainerDir>/dev/urandom</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>Big Sur</Value>
+      <Name>flavour</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>Auto install</Value>
+      <Name>vminstall</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100G</Value>
+      <Name>vdisksize</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/mnt/user/domains/</Value>
+      <Name>VMIMAGES</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/mnt/user/isos/</Value>
+      <Name>ISOIMAGES</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>method 1</Value>
+      <Name>method</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>virtmanager_only</Value>
+      <Name>onlyvirt</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>injectfixxml</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>768</Value>
+      <Name>DISPLAY_HEIGHT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1280</Value>
+      <Name>DISPLAY_WIDTH</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1</Value>
+      <Name>KEEP_APP_RUNNING</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>USER_ID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>GROUP_ID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>000</Value>
+      <Name>UMASK</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Operating System Version" Target="flavour" Default="Ventura|Sequoia|Sonoma|Monterey|Big Sur|Catalina|Mojave|High Sierra" Mode="" Description="Choose macOS version to instal" Type="Variable" Display="always" Required="true" Mask="false">Big Sur</Config>
+  <Config Name="Install Type" Target="vminstall" Default="Auto install|Manual install" Mode="" Description="Auto install to install a vm directly into Unraid. Manual for advanced install" Type="Variable" Display="always" Required="true" Mask="false">Auto install</Config>
+  <Config Name="vDisk Size" Target="vdisksize" Default="" Mode="" Description="Select the size of your virtual disk (vDisk) in Gigabytes G" Type="Variable" Display="always" Required="true" Mask="false">100G</Config>
+  <Config Name="VM Images Location" Target="/domains" Default="/mnt/user/domains/" Mode="rw" Description="Please choose the storage location for your VM images on the server. The default path is set to /mnt/user/domains/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
+  <Config Name="VM Images Location AGAIN !!!" Target="VMIMAGES" Default="/mnt/user/domains/" Mode="" Description="This must match the above VM Images Location (yes we need it twice!)" Type="Variable" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
+  <Config Name="Isos Share Location" Target="/isos" Default="/mnt/user/isos/" Mode="rw" Description="Please choose the storage location for your ISO files on the server. The default path is set to /mnt/user/isos/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
+  <Config Name="Isos Share Location AGAIN !!!" Target="ISOIMAGES" Default="/mnt/user/isos/" Mode="" Description="This must match the above Isos Share Location (yes we need it twice!)" Type="Variable" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
+  <Config Name="Download Method" Target="method" Default="method 1|method 2" Mode="" Description="2 different ways to get macos. Change to method 2 if method 1 doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">method 1</Config>
+  <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">virtmanager_only</Config>
+  <Config Name="custom ovmf location" Target="/customovmf/" Default="/mnt/user/system/custom_ovmf/" Mode="rw" Description="Dont change" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/system/custom_ovmf/</Config>
+  <Config Name="Appdata Location:" Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="Please choose the storage location for your appdata  The default path is set to /mnt/user/appdata/macinabox/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
+  <Config Name="Macinabox only data" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="Macinabox data as a subfolder of the main appdata&#xD;&#10;" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
+  <Config Name="Basesystem " Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="/mnt/user/appdata/macinabox/basesystem" Mode="rw" Description="Baseimage temporary location as a subfolder of appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
+  <Config Name="Inject Macinabox helper scripts" Target="injectfixxml" Default="yes|no" Mode="" Description="Injects macinabox helper userscript directly into userscripts plugin " Type="Variable" Display="advanced" Required="true" Mask="false">yes</Config>
+  <Config Name="Userscripts Location" Target="/userscripts" Default="/boot/config/plugins/user.scripts/scripts" Mode="rw" Description="Dont change this!" Type="Path" Display="advanced" Required="true" Mask="false">/boot/config/plugins/user.scripts/scripts</Config>
+  <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="768" Mode="" Description="Height (in pixels) of the virtmager's window." Type="Variable" Display="advanced" Required="true" Mask="false">768</Config>
+  <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1280" Mode="" Description="Width (in pixels) of the virtmanager's window." Type="Variable" Display="advanced" Required="true" Mask="false">1280</Config>
+  <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="Virtmanager webvnc port" Type="Port" Display="advanced" Required="true" Mask="false">7800</Config>
+  <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="Virtmanger vnc port (if you want to use external vnc viewer programme)" Type="Port" Display="advanced" Required="false" Mask="false">7900</Config>
+  <Config Name="KEEP_APP_RUNNING" Target="KEEP_APP_RUNNING" Default="" Mode="" Description="Dont change !!" Type="Variable" Display="advanced" Required="true" Mask="false">1</Config>
+  <Config Name="/dev/urandom" Target="/dev/urandom" Default="/dev/urandom" Mode="ro" Description="Dont change !!" Type="Path" Display="advanced" Required="true" Mask="false">/dev/urandom</Config>
+  <Config Name="USER_ID" Target="USER_ID" Default="99" Mode="" Description="USER_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="GROUP_ID" Target="GROUP_ID" Default="0" Mode="" Description="GROUP_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">000</Config>
+  <Config Name="Vdisk Type" Target="vdisktype" Default="raw|qcow2" Mode="" Description="Choose vdisk type  raw or qcow2  (qcow2 takes less space)" Type="Variable" Display="always" Required="true" Mask="false">qcow2</Config>
+  <Config Name="Opencore stock or custom" Target="opencore" Default="stock|custom" Mode="" Description="Choose from the built in Opencore in macinabox or choose a custom one (add in appdata/macinabox/custom_opencore)" Type="Variable" Display="always" Required="true" Mask="false">stock</Config>
+  <Config Name="Delete and replace Opencore" Target="replaceopencore" Default="no|yes" Mode="" Description="Set to " Type="Variable" Display="always" Required="true" Mask="false">no</Config>
+  <Config Name="Defualt NIC type" Target="overridenic" Default="virtio-net|e1000-82545em|virtio|vmxnet3" Mode="" Description="Override the default NIC type for macOS versions that support it. If unsupported, it reverts to a compatible version." Type="Variable" Display="always" Required="true" Mask="false">no</Config>
+  <Config Name="Are you fully compliant with Apple&#x2019;s EULA ?" Target="OKTORUN" Default="NO|YES" Mode="" Description="Set to YES to use this container only if you are compliant with Apples EULA. To be compliant your server must be Apple Hardware (ie a Mac Pro/Mini) then the EULA states For virtualisation: &#x201C;You may also install, use, and run up to two additional copies or instances of the Apple Software within virtual operating system environments on each Apple-branded computer you own or control." Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
+  <Config Name="Custom VM Name" Target="CUSTOMNAME" Default="" Mode="" Description="Enter a different name if you want the VM to have a name other than the OS name. If left blank, the container will use the default OS name installed." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="CPUARGS" Target="CPUARGS" Default="Skylake-Server,vendor=GenuineIntel,+hypervisor,+invtsc,kvm=on,+fma,+avx,+avx2,+aes,+ssse3,+sse4_2,+popcnt,+sse4a,+bmi1,+bmi2|Penryn,kvm=on,vendor=GenuineIntel,+kvm_pv_unhalt,+kvm_pv_eoi,+hypervisor,+invtsc,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+avx2,+aes,+fma,+fma4,+bmi1,+bmi2,+xsave,+xsaveopt,+rdrand,check|Penryn,vendor=GenuineIntel,+hypervisor,+invtsc,kvm=on,+fma,+avx,+avx2,+aes,+ssse3,+sse4_2,+popcnt,+sse4a,+bmi1,+bmi2|host,vendor=GenuineIntel,+hypervisor,+invtsc,kvm=on,+fma,+avx,+avx2,+aes,+ssse3,+sse4_2,+popcnt,+sse4a,+bmi1,+bmi2" Mode="" Description=" CPU args for VM" Type="Variable" Display="always" Required="true" Mask="false">Skylake-Server,vendor=GenuineIntel,+hypervisor,+invtsc,kvm=on,+fma,+avx,+avx2,+aes,+ssse3,+sse4_2,+popcnt,+sse4a,+bmi1,+bmi2</Config>
+  <Config Name="macinabox version" Target="WHATVERSION" Default="3" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="true" Mask="false">3</Config>
+  <Config Name="unraid_vm_icons" Target="/icons" Default="" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images</Config>
+  <Config Name="UNRAID /usr/lib64" Target="/host/usr/lib64" Default="/usr/lib64" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/usr/lib64</Config>
+  <Config Name="unraid vm icons host locaction" Target="/unraid_vm_icons" Default="/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images/" Mode="rw" Description="Location of where Unraid stores VM icons, aloowing container to use custom macOS icon" Type="Path" Display="advanced" Required="true" Mask="false">/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images/</Config>
+  <Config Name="NVRAM location" Target="/var/lib/libvirt/qemu/nvram" Default="/var/lib/libvirt/qemu/nvram" Mode="rw" Description="NVRAM location on host. Used so container can create a unique nvram file for the macOS VM" Type="Path" Display="advanced" Required="true" Mask="false">/var/lib/libvirt/qemu/nvram</Config>
+  <Config Name="UNRIAD DOMAIN CONFIG" Target="/vm/domain.cfg" Default="/boot/config/domain.cfg" Mode="rw" Description="UNRAID domain.cfg path. Used to find VM Default network source" Type="Path" Display="advanced" Required="true" Mask="false">/boot/config/domain.cfg</Config>
+  <Config Name="UNRAID /usr/lib" Target="/host/usr/lib" Default="/usr/lib" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/usr/lib</Config>
+  <Config Name="UNRAID /lib64" Target="/host/lib64" Default="/lib64" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/lib64</Config>
+  <Config Name="UNRAID /usr/local/emhttp/webGui/scripts/" Target="/host/usr/local/emhttp/webGui/scripts/" Default="/usr/local/emhttp/webGui/scripts/" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/usr/local/emhttp/webGui/scripts/</Config>
+  <Config Name="UNRAID /usr/local/emhttp/webGui/include/" Target="/host/usr/local/emhttp/webGui/include/" Default="/usr/local/emhttp/webGui/include/" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/usr/local/emhttp/webGui/include/</Config>
+  <Config Name="UNRAID /tmp/notifications" Target="/host/tmp/notifications" Default="/tmp/notifications" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/tmp/notifications</Config>
+  <Config Name="UNRAID /boot/config/plugins/dynamix/" Target="/host/boot/config/plugins/dynamix/" Default="/boot/config/plugins/dynamix/" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/boot/config/plugins/dynamix/</Config>
+  <Config Name="LIBVIRT Location" Target="/var/run/libvirt" Default="/var/run/libvirt" Mode="rw" Description="LIBVIRT Location on host. Used so container can define the macOS vm" Type="Path" Display="advanced" Required="true" Mask="false">/var/run/libvirt</Config>
+  <Config Name="UNRAID /usr/bin" Target="/host/usr/bin" Default="" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/usr/bin</Config>
+  <Config Name="UNRAID /lib" Target="/host/lib" Default="/lib" Mode="rw" Description="Used so container can use unraid notification system during macOS creation process" Type="Path" Display="advanced" Required="true" Mask="false">/lib</Config>
+  <Config Name="UNRAID docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="UNRAID docker.sock. Used so container can use docker inspect to workout true locations of mapped locations to create the xml used to define the macOS VM" Type="Path" Display="advanced" Required="true" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="NVRAM location" Target="/etc/libvirt/qemu/nvram/" Default="/etc/libvirt/qemu/nvram/" Mode="rw" Description="NVRAM location on host. Used so container can create a unique nvram file for the macOS VM" Type="Path" Display="advanced" Required="true" Mask="false">/etc/libvirt/qemu/nvram/</Config>
+</Container>
